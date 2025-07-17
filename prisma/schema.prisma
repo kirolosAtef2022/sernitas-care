@@ -1,0 +1,39 @@
+// filepath: /prisma/schema.prisma
+datasource db {
+  provider = "mongodb"
+  url      = env("VITE_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Application {
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName              String
+  lastName               String
+  birthDate              String
+  gender                 String
+  email                  String
+  telephone              String
+  streetName             String
+  houseNumber            String
+  postalCode             String
+  city                   String
+  occupation             String
+  emergencyContactName   String
+  emergencyContactNumber String
+  primaryPhysician       String?
+  insuranceProvider      String?
+  insurancePolicyNumber  String?
+  allergies              String?
+  currentMedication      String?
+  familyMedicalHistory   String?
+  pastMedicalHistory     String?
+  identificationType     String
+  identificationNumber   String?
+  remarks                String?
+  privacyConsent         Boolean
+  createdAt              DateTime @default(now())
+  status                 String   @default("Pending") // Add status field with default value
+}
