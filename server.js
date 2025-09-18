@@ -9,12 +9,12 @@ import emailRoutes from "./server/emailRoutes.js";
 // Load environment variables from .env
 dotenv.config();
 
-console.log("API Base URL:", process.env.VITE_API_BASE_URL_RENDER);
+console.log("API Base URL:", process.env.VITE_API_BASE_URL_LOCAL);
 console.log("SMTP Host:", process.env.VITE_SMTP_HOST);
 console.log("Database URL:", process.env.VITE_DATABASE_URL);
 
 const app = express(); // Initialize app here
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.VITE_PORT || 5000;
 
 // Middleware
 app.use(bodyParser.json());

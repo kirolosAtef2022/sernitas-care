@@ -135,9 +135,9 @@ sernitas-care/
 Create a `.env` file in the root directory and configure the following:
 
 ```env
-VITE_EMAIL_USER=your-email@example.com
-VITE_EMAIL_PASS=your-email-password
-VITE_SMTP_HOST=smtp.example.com
+VITE_EMAIL_USER=your-kirolosatef76@gmail.com
+VITE_EMAIL_PASS=lluxsrfkobxigktg
+VITE_SMTP_HOST=smtp.gmail.com
 VITE_SMTP_PORT=465
 VITE_SMTP_SECURE=true
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/sernitas-care
