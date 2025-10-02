@@ -4,7 +4,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { z } from "zod";
 
-import HRImage from "../../assets/aboutPage/hr-1.jpg";
+import HRImage from "../../assets/aboutPage/hr-2.10.jpg";
 
 import CachedImage from "../CachedImage";
 
@@ -93,7 +93,7 @@ const HomeConsultationSection = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-24 px-4 lg:px-12 xl:px-44">
+    <section className="bg-gray-50 py-24 px-4 lg:px-12 xl:px-44">
       <div className="flex flex-col lg:flex-row gap-12">
         {/* Left Section */}
         <div className="lg:w-[60%] space-y-6">
@@ -152,7 +152,7 @@ const HomeConsultationSection = () => {
             />
             <div>
               <p className="font-sour text-primary/90 text-2xl font-bold tracking-wide">
-                Dr. Ali Yildiz
+                 Ms. Nevile
               </p>
               <p className="text-gray-400 text-sm">Mo - Fr 08:00 - 17:00</p>
               <p className="text-primary/90 font-bold">0234 / 966 46 480</p>
@@ -160,7 +160,7 @@ const HomeConsultationSection = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <p className="font-sour text-primary/90 font-medium text-xl mb-8">
-              Wir rufen Sie zurück!
+              Wir rufen Sie zurück auch gern!
             </p>
             <div className="ml-4 mr-4 mb-4 text-gray-700">
               <Input

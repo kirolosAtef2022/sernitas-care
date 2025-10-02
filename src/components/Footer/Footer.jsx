@@ -11,7 +11,7 @@ import {
   FaXing,
 } from "react-icons/fa";
 
-import Logo from "../../assets/footerSection/logo-bg.png";
+import Logo from "../../assets/footerSection/logo1.10.svg";
 
 import PartnersSection from "./PartnersSection";
 import AffiliatesSection from "./AffiliatesSection";
@@ -41,7 +41,8 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
-          className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8"
+          className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm lg:text-md
+"
         >
           {/* Column 1: Logo and Social Links */}
           <motion.div
@@ -52,56 +53,56 @@ const Footer = () => {
             <CachedImage
               src={Logo}
               alt="Sernitas Logo"
-              className="w-[200px] mx-auto md:mx-0"
+              className="w-[200px] mx-auto md:-mx-2 bg-primary-700 pr-1 pl-1 rounded-lg pb-.5"
             />
             <p className="font-sour text-lg">
               Wir globalisieren die Gesundheit!
             </p>
             <p className="font-sour text-lg font-medium">Folgen Sie uns</p>
-            <div className="flex justify-center md:justify-start gap-4">
+            <div className="flex flex-nowrap md:flex-wrap justify-center md:justify-start gap-5">
               <a
                 href="https://www.facebook.com/sernitasglobal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:scale-110 hover:text-secondary transition-transform duration-300"
+                className="hover:scale-110 transition-transform duration-300"
               >
-                <FaFacebook size={24} />
+                <FaFacebook size={25} />
               </a>
               <a
                 href="https://www.instagram.com/sernitashrturkey?igsh=MWphd210cjVod3hjbg=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:scale-110 hover:text-secondary transition-transform duration-300"
+                className="hover:scale-110 transition-transform duration-300"
               >
-                <FaInstagram size={24} />
+                <FaInstagram size={25} />
               </a>
               <a
                 href="#"
-                className="hover:scale-110 hover:text-secondary transition-transform duration-300"
+                className="hover:scale-110 transition-transform duration-300"
               >
-                <FaTwitter size={24} />
+                <FaTwitter size={25} />
               </a>
               <a
                 href="#"
-                className="hover:scale-110 hover:text-secondary transition-transform duration-300"
+                className="hover:scale-110 transition-transform duration-300"
               >
-                <FaYoutube size={24} />
+                <FaYoutube size={25} />
               </a>
               <a
                 href="https://www.linkedin.com/company/sernitas/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:scale-110 hover:text-secondary transition-transform duration-300"
+                className="hover:scale-110 transition-transform duration-300"
               >
-                <FaLinkedin size={24} />
+                <FaLinkedin size={25} />
               </a>
               <a
                 href="https://www.xing.com/pages/sernitas-gmbh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:scale-110 hover:text-secondary transition-transform duration-300"
+                className="hover:scale-110 transition-transform duration-300"
               >
-                <FaXing size={24} />
+                <FaXing size={25} />
               </a>
             </div>
           </motion.div>
@@ -304,9 +305,16 @@ const Footer = () => {
             className="space-y-4 text-center md:text-left"
           >
             <h4 className="text-xl font-bold">Kontakt aufnehmen</h4>
-            <p>
-              <span className="font-bold">E-mail:</span> info@sernitas-care.com
-            </p>
+             {/* <span className="font-bold">E-mail:</span> info@sernitas-care.com */}
+          <p className="w-full lg:text-left">
+  <a
+    href="mailto:info@sernitas-care.com"
+    className="inline-flex items-center gap-2  transition-colors duration-200"
+  >
+    
+    <span><span className="font-bold">E-mail : </span><span className="underline hover:text-secondary">info@sernitas-care.com</span></span>
+  </a>
+</p>
             <p>
               Sernitas GmbH
               <br />
@@ -317,9 +325,9 @@ const Footer = () => {
               44799 Bochum
             </p>
             <p>
-              <span className="font-bold">Telefon:</span> +49 234 966 46 480
-              <br />
-              <span className="font-bold">Fax:</span> +49 234 966 45 602
+              <span className="font-bold">Tel : </span><a href="tel:+4923496646480" className="underline hover:text-secondary">+49 234 966 46 480</a> 
+              <br /> 
+              <span className="font-bold">Fax : </span><a href="tel:+4923496646480" className="underline hover:text-secondary">+49 234 966 46 480</a>
             </p>
           </motion.div>
         </motion.div>

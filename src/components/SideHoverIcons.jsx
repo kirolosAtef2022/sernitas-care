@@ -5,6 +5,7 @@ import {
   FaAngleDoubleRight,
   FaFacebookF,
   FaInstagram,
+  FaAngleDoubleLeft,
 } from "react-icons/fa";
 
 const SideHoverIcons = () => {
@@ -12,7 +13,7 @@ const SideHoverIcons = () => {
 
   return (
     <div
-      className={`fixed top-1/2 -translate-y-1/2 right-0 z-20 transition-all duration-500 bg-transparent ${
+      className={`fixed top-[55.6667%] right-3  -translate-y-1/2 z-20 transition-all duration-500 bg-transparent ${
         hover ? "w-64" : "w-14"
       }`}
       onMouseEnter={() => setHover(true)}
@@ -20,57 +21,83 @@ const SideHoverIcons = () => {
     >
       <div className="flex flex-col gap-2 py-4 px-2">
         {/* Phone */}
-        <div className="flex items-center gap-2 text-white hover:text-gray-200 bg-primary/90 hover:bg-secondary/90 p-2 rounded-md cursor-pointer">
-          <a href="tel:+4923496646480" className="flex items-center gap-2">
-            <FaPhone className="text-lg" />
-            {hover && <span>+49 234 966 46 480</span>}
-          </a>
-        </div>
+        <a
+          href="tel:+4923496646480"
+          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+        >
+          <FaPhone className="text-lg shrink-0" />
+          <span
+            className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
+              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+            }`}
+          >
+            +49 234 966 46 480
+          </span>
+        </a>
 
         {/* Email */}
-        <div className="flex items-center gap-2 text-white hover:text-gray-200 bg-primary/90 hover:bg-secondary/90 p-2 rounded-md cursor-pointer">
-          <a
-            href="mailto:info@sernitas-care.com"
-            className="flex items-center gap-2"
+        <a
+          href="mailto:info@sernitas-care.com"
+          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+        >
+          <FaEnvelope className="text-lg shrink-0" />
+          <span
+            className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
+              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+            }`}
           >
-            <FaEnvelope className="text-lg" />
-            {hover && <span>info@sernitas-care.com</span>}
-          </a>
-        </div>
+            info@sernitas-care.com
+          </span>
+        </a>
 
         {/* Contact Form */}
-        <div className="flex items-center gap-2 text-white hover:text-gray-200 bg-primary/90 hover:bg-secondary/90 p-2 rounded-md cursor-pointer">
-          <a href="/contact" className="flex items-center gap-2">
-            <FaAngleDoubleRight className="text-lg" />
-            {hover && <span>Zum Kontaktformular</span>}
-          </a>
-        </div>
+        <a
+          href="/contact"
+          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+        >
+          <FaAngleDoubleLeft className="text-lg shrink-0" />
+          <span
+            className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
+              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+            }`}
+          >
+            Zum Kontaktformular
+          </span>
+        </a>
 
         {/* Facebook */}
-        <div className="flex items-center gap-2 text-white hover:text-gray-200 bg-primary/90 hover:bg-secondary/90 p-2 rounded-md">
-          <a
-            href="https://www.facebook.com/sernitasglobal"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 pointer-events-auto"
+        <a
+          href="https://www.facebook.com/sernitasglobal"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+        >
+          <FaFacebookF className="text-lg shrink-0" />
+          <span
+            className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
+              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+            }`}
           >
-            <FaFacebookF className="text-lg" />
-            {hover && <span>Facebook</span>}
-          </a>
-        </div>
+            Facebook
+          </span>
+        </a>
 
         {/* Instagram */}
-        <div className="flex items-center gap-2 text-white hover:text-gray-200 bg-primary/90 hover:bg-secondary/90 p-2 rounded-md">
-          <a
-            href="https://www.instagram.com/sernitashrturkey?igsh=MWphd210cjVod3hjbg=="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 pointer-events-auto"
+        <a
+          href="https://www.instagram.com/sernitashrturkey?igsh=MWphd210cjVod3hjbg=="
+          target="_blank"
+          rel="noopener noreferrer"
+          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+        >
+          <FaInstagram className="text-lg shrink-0" />
+          <span
+            className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
+              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+            }`}
           >
-            <FaInstagram className="text-lg" />
-            {hover && <span>Instagram</span>}
-          </a>
-        </div>
+            Instagram
+          </span>
+        </a>
       </div>
     </div>
   );

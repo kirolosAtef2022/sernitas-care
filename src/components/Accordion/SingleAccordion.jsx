@@ -8,16 +8,16 @@ const SingleAccordion = ({ title, info, isActive, onToggle }) => {
 
   return (
     <motion.article
-      className="question mb-12"
+      className="question mb-1"
       initial={!hasAnimated ? { opacity: 0, y: 20 } : false}
       animate={!hasAnimated ? { opacity: 1, y: 0 } : false}
       transition={{ duration: 0.5, ease: "easeOut" }}
       onAnimationComplete={() => setHasAnimated(true)} // Mark animation as completed
     >
       {/* Question Header */}
-      <div className="bg-primary/90 py-6 px-12 rounded-2xl shadow-2xl">
-        <header className="flex justify-between items-center">
-          <h5 className="text-lg font-semibold text-white">{title}</h5>
+      {/* <div className="bg-primary/90 py-4 px-12 rounded-xl shadow-2xl">
+        <header className=" flex justify-between items-center">
+          <h5 className="text-sm md:text-md lg:text-lg xl:text-xl font-semibold text-white">{title}</h5>
           <button
             className="bg-white text-primary/90 rounded-full w-8 h-8 flex items-center justify-center"
             onClick={onToggle} // Call the toggle function
@@ -29,7 +29,26 @@ const SingleAccordion = ({ title, info, isActive, onToggle }) => {
             )}
           </button>
         </header>
-      </div>
+      </div> */}
+    <div className="bg-primary/90 py-3 md:py-4 xl:py-6  px-4 md:px-9 xl:px-12 rounded-xl shadow-2xl">
+    <header className="flex justify-between items-center gap-x-6">
+    <h5 className="text-sm md:text-md lg:text-lg xl:text-xl font-semibold text-white">
+      {title}
+    </h5>
+    <button
+      className="bg-white text-primary/90 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+      onClick={onToggle} // Call the toggle function
+    >
+      {isActive ? (
+        <AiOutlineMinus className="text-lg font-bold" />
+      ) : (
+        <AiOutlinePlus className="text-lg font-bold" />
+      )}
+    </button>
+  </header>
+</div>
+
+
 
       {/* Answer Content */}
       {isActive && (

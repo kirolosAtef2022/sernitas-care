@@ -95,16 +95,16 @@ const Downloads = () => {
 
   return (
     <div className="flex items-center justify-center  min-h-screen">
-      <div className="py-12 xl:py-24 px-6 lg:px-12 xl:px-44 space-y-12 items-center text-center justify-center">
+      <div className=" py-12 xl:py-24 px-6 lg:px-12 xl:px-44 space-y-12 items-center text-center justify-center">
         {sections.map((section, index) => (
           <div key={index} className="mb-16">
-            <h2 className=" items-start font-sour text-3xl xl:text-4xl text-primary/90 font-bold mb-12">
+            <h2 className=" items-start font-sour text-xl md:text-3xl text-primary/90 font-bold mb-6">
               {section.title}
             </h2>
             <ul>
               {section.items.map((item, idx) => (
-                <li key={idx} className="flex items-center text-xl mb-6">
-                  <FiDownload className="mr-2 text-primary/90" />
+                <li key={idx} className="flex items-center text-xs md:text-md md:text-xl mb-3">
+                  <FiDownload className="mr-0 md:mr-2 text-primary/90 w-3 md:w-5 h-3 md:h-5"  />
                   <a
                     href={item.link}
                     target="_blank"

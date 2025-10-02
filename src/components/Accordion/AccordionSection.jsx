@@ -36,13 +36,13 @@ const AccordionSection = () => {
         variants={slideUp(0.2)}
         initial="initial"
         animate="animate" // Trigger animation only once
-        className="font-sour text-3xl xl:text-4xl font-bold text-center text-primary/90 mb-12"
+        className="font-sour text-3xl xl:text-4xl font-bold text-center text-primary/90 -mb-10 md:-mb-6"
       >
         Fragen, die oft gestellt werden – Antworten, die helfen!
       </motion.h2>
 
       {/* Parent Wrapper for Questions and Answers */}
-      <div className=" p-4">
+      <div className=" p-12 md:p-4">
         {/* Accordion Questions */}
         <motion.div
           className="max-w-3xl mx-auto"

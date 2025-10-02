@@ -3,12 +3,20 @@ import { motion } from "framer-motion";
 import { slideBottom } from "../../utility/animation";
 import { useNavigate } from "react-router-dom";
 
-import Logo from "../../assets/footerSection/logo.png";
+// import Logo from "../../assets/footerSection/logo.png";
+import Logo from "../../assets/footerSection/logo1.10.svg";
 
 import CachedImage from "../CachedImage";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  // showning the navbar when the the using scroll or when the video finished
+  const [scrolled, setScrolled] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
+  const videoRef = useRef(null);
+
+  //end of code
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -96,6 +104,33 @@ const Navbar = () => {
     };
   }, []);
 
+
+    // Scroll listener
+  useEffect(() => {
+  if (typeof window !== "undefined") console.log("hello"); // only run in browser
+
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
+    console.log("ScrollY:", window.scrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+  
+    // Video end listener
+    useEffect(() => {
+      const video = videoRef.current;
+      if (!video) return;
+  
+      const handleEnded = () => setVideoEnded(true);
+      video.addEventListener("ended", handleEnded);
+  
+      return () => video.removeEventListener("ended", handleEnded);
+    }, []);
+    //const navbarSolid = scrolled || videoEnded;
+  
+
   // Close search bar or list when clicking outside
   // useEffect(() => {
   //   const handleClickOutside = (event) => {
@@ -127,7 +162,7 @@ const Navbar = () => {
 
   const navItems = [
     {
-      title: "Unsere Leistungen",
+      title: <span>Unsere&nbsp;Leistungen</span>,
       subItems: [
         { title: "Grundpflege", link: "/services/grundpflege" },
         { title: "Behandlungspflege", link: "/services/behandlungspflege" },
@@ -140,7 +175,7 @@ const Navbar = () => {
       ],
     },
     {
-      title: "Über uns",
+      title: <span>Über&nbsp;uns</span>,
       subItems: [
         { title: "Wir sind Sernitas", link: "/about-us/wir-sind-sernitas" },
         { title: "Team", link: "/about-us/team" },
@@ -171,30 +206,52 @@ const Navbar = () => {
         variants={slideBottom(0.2)}
         initial="initial"
         animate="animate"
-        className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black bg-opacity-30 py-4"
+        // className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black bg-opacity-30 py-1 "
+          className={`fixed top-0 left-0 w-full z-50 py-2 md:py-1 px-4
+          ${scrolled ? "backdrop-blur-md bg-black bg-opacity-30"  : "bg-opacity-30"}
+          `}
       >
-        <div className="container flex justify-between items-center">
+        <div className="container flex justify-between items-center p-2 m-0">
           {/* Clickable Logo */}
-          <a href="/" className="flex items-center cursor-pointer">
+          {/* <a href="/" className="flex items-center cursor-pointer">
             <CachedImage
               src={Logo}
               alt="sernitas care logo"
-              className="w-[180px] md:w-[200px] hover:scale-105 transition-transform duration-300"
+              className="w-[130px] flex-shrink-0 hover:scale-105 transition-transform duration-300"
             />
-          </a>
+          </a> */}
+<a
+  href="/"
+  aria-label="Sernitas Care – Home"
+  title="Home"
+  className="group relative inline-flex items-center rounded-xl p-1.5 -m-1.5 cursor-pointer
+             transition-all duration-200
+             ring-1 ring-transparent 
+             active:scale-95
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+>
+  <CachedImage
+    src={Logo}
+    alt="Sernitas Care"
+    width={280}
+    height={64}
+    draggable={false}
+    decoding="async"
+    fetchpriority="high"
+    className="h-8 md:h-9 lg:h-10 w-auto object-contain
+             transition-transform duration-200 transform-gpu
+             group-hover:scale-[1.04] group-active:scale-95"
+  />
+</a>
+
+
+
+
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
-            <ul className="flex gap-7 xl:gap-10 text-white font-medium tracking-wide items-center">
+          <div className="hidden md:flex items-center gap-10 mx-5">
+            <ul className="flex gap-2 sm:gap-3 md:gap-3 lg:gap-8 xl:gap-10 text-white font-medium tracking-wide items-center">
               {/* Home Icon */}
-              <li className="flex items-center">
-                <a
-                  href="/"
-                  className="text-white text-lg font-bold hover:text-secondary flex items-center justify-center"
-                >
-                  <i className="fas fa-home"></i>
-                </a>
-              </li>
 
               {navItems.map((item, idx) => (
                 <li
@@ -220,7 +277,8 @@ const Navbar = () => {
                         ? "/wissenswertes/faq"
                         : "/"
                     }
-                    className="uppercase text-md font-bold hover:text-secondary flex items-center justify-center"
+                    className="uppercase text-xs md:text-sm lg:text-base font-bold hover:text-secondary 
+                    flex items-center justify-center"
                   >
                     {item.title}
                   </a>
@@ -251,10 +309,10 @@ const Navbar = () => {
               ))}
 
               {/* Karriere */}
-              <li className="flex items-center">
+              <li className=" text-md flex items-center">
                 <a
                   href="/karriere"
-                  className="uppercase text-md font-bold hover:text-secondary flex items-center justify-center"
+                  className="uppercase text-xs md:text-sm lg:text-base  font-bold hover:text-secondary flex items-center justify-center"
                 >
                   Karriere
                 </a>
@@ -264,7 +322,7 @@ const Navbar = () => {
               <li className="flex items-center">
                 <a
                   href="/contact"
-                  className="uppercase text-md font-bold hover:text-secondary flex items-center justify-center"
+                  className="uppercase text-xs md:text-sm lg:text-base font-bold hover:text-secondary flex items-center justify-center"
                 >
                   Kontakt
                 </a>
@@ -295,14 +353,17 @@ const Navbar = () => {
               </li> */}
 
               {/* Search Icon */}
-              <li className="flex items-center">
+             
+            </ul>
+          </div>
+          <div className="text-white hidden md:flex hover:text-secondary mr-8 sm:mr-3">
+                 <li className="flex items-center">
                 <button onClick={toggleSearch} className="text-lg font-bold">
                   <i className="fas fa-search"></i>
                 </button>
               </li>
-            </ul>
-          </div>
 
+          </div>
           {/* Mobile Menu Button */}
           <div className="md:hidden flex justify-end w-full">
             <button

@@ -58,7 +58,7 @@ const StepsSection = () => {
             </div>
             <div className="text-center min-h-[60px]">
               <p className="font-sour text-primary/90 text-base md:text-lg">
-                Wir kommen sofort <br />
+                Wir kommen<br />
                 bei Ihnen vorbei
               </p>
             </div>

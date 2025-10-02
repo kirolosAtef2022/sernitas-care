@@ -41,22 +41,27 @@ const Leitbild = () => {
         </h3>
         <ul className="space-y-6 text-primary/90">
           <li className="flex items-start gap-2">
-            <span className="text-green-700 font-bold">✔</span> Individuelle
+            <span className="text-primary/90 font-bold text-xl leading-none align-middle">■</span> Individuelle
             Pflegepläne: Keine Pflege von der Stange – wir gestalten unsere
             Leistungen flexibel nach Ihren Bedürfnissen.
           </li>
+
+
+  
+
+
           <li className="flex items-start gap-2">
-            <span className="text-green-700 font-bold">✔</span> Qualifiziertes
+              <span className="text-primary/90 font-bold text-xl leading-none align-middle">■</span> Qualifiziertes
             Fachpersonal: Unsere Pflegekräfte sind bestens ausgebildet,
             engagiert und nehmen regelmäßig an Fortbildungen teil.
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-green-700 font-bold">✔</span> Zuverlässigkeit
+              <span className="text-primary/90 font-bold text-xl leading-none align-middle">■</span> Zuverlässigkeit
             und Erreichbarkeit: Wir sind jederzeit für Sie da – sei es bei
             akuten Anliegen oder langfristiger Unterstützung.
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-green-700 font-bold">✔</span> Ganzheitlicher
+              <span className="text-primary/90 font-bold text-xl leading-none align-middle">■</span> Ganzheitlicher
             Ansatz: Neben der körperlichen Pflege legen wir großen Wert auf
             soziale Betreuung und emotionale Begleitung.
           </li>

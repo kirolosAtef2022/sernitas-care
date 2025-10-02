@@ -6,14 +6,14 @@ import CachedImage from "../CachedImage";
 
 const WelcomeSection = () => {
   return (
-    <section className="bg-gray-50 py-24 px-6 md:px-12 xl:px-32">
+    <section className="bg-gray-50 py-10 px-6 md:px-12 xl:px-32">
       <div className="max-w-6xl mx-auto">
         {/* Top Heading */}
         <div className="text-center mb-12">
-          <h2 className="font-sour text-primary/90 text-xl lg:text-2xl font-medium mb-4">
+          <h2 className="font-sour text-primary text-xl lg:text-2xl font-medium mb-4">
             Herzlich Willkommen bei Sernitas Care
           </h2>
-          <h1 className="font-sour text-primary/90 text-3xl md:text-4xl font-bold mb-6 leading-snug">
+          <h1 className="font-sour text-primary-500 text-3xl md:text-4xl font-bold mb-6 leading-snug">
             Professionelle Pflege & Betreuung mit interkulturellem Verständnis
           </h1>
         </div>
@@ -43,25 +43,25 @@ const WelcomeSection = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: false, amount: 0.2 }}
           >
-            <h3 className="text-primary/90 text-xl md:text-2xl font-semibold mb-4">
-              Sernitas Care – Ihre vertrauensvolle Unterstützung im Alltag
+            <h3 className="relative inline-block  text-primary-500  text-xl md:text-2xl font-semibold mb-4">
+             <span className="bg-gradient-to-t from-primary-700 to-transparent">Sernitas Care – Ihre vertrauensvolle Unterstützung im Alltag</span> 
             </h3>
-            <p className="text-base md:text-lg leading-relaxed text-primary/90 mb-4 text-justify">
+            <p className="text-base md:text-lg leading-relaxed text-primary-500 mb-4 text-justify">
               Bei Sernitas Care bieten wir Ihnen eine Vielzahl an
               Dienstleistungen, die individuell auf Ihre Bedürfnisse abgestimmt
               sind. Unser Ziel ist es, Ihnen ein selbstbestimmtes, würdevolles
               Leben in Ihrer gewohnten Umgebung zu ermöglichen – ganz gleich, ob
               es um kleine Alltagshelfer oder um umfassende Pflege geht.
             </p>
-            <p className="text-base md:text-lg leading-relaxed text-primary/90 mb-4 text-justify">
+            <p className="text-base md:text-lg leading-relaxed text-primary-500 mb-4 text-justify">
               Mit unseren Pflege- und Betreuungsleistungen unterstützen wir Sie
               in den Bereichen, die im Alltag besonders wichtig sind:{" "}
-              <span className="font-semibold text-secondary">Körperpflege</span>
-              , <span className="font-semibold text-secondary">Ernährung</span>{" "}
+              <span className="font-semibold text-primary-500">Körperpflege</span>
+              , <span className="font-semibold text-primary-500">Ernährung</span>{" "}
               und{" "}
-              <span className="font-semibold text-secondary">Mobilität</span>.
+              <span className="font-semibold text-primary-500">Mobilität</span>.
             </p>
-            <p className="text-base md:text-lg leading-relaxed text-primary/90 text-justify">
+            <p className="text-base md:text-lg leading-relaxed text-primary-500 text-justify">
               Wir sind da, um Ihnen bei den täglichen Aufgaben zur Seite zu
               stehen und sorgen mit viel Einfühlungsvermögen dafür, dass Sie
               sich rundum wohl und sicher fühlen – zu Hause eben.

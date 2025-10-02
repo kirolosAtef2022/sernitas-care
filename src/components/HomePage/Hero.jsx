@@ -147,6 +147,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import { FaPhone, FaPlay } from "react-icons/fa";
+import Video from "../../assets/homePage/video.mp4";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -162,18 +163,28 @@ const Hero = () => {
     <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <iframe
+        {/* <iframe
           className="w-full h-full object-cover"
           src={backgroundVideoUrl}
           title="Sernitas Video Background"
           allow="autoplay; muted; loop"
+          style={{ border: "none" }} // Replaces the deprecated frameBorder attribute
+        /> */}
+
+           <video
+          className="w-full h-full object-cover"
+          src={Video}
+          title="Sernitas Video Background"
+           autoPlay
+            muted
+            playsInline
           style={{ border: "none" }} // Replaces the deprecated frameBorder attribute
         />
       </div>
 
       {/* Overlay Content */}
       {!isVideoOpen && (
-        <div className="absolute inset-0 z-10 bg-black bg-opacity-40 text-white flex flex-col justify-center items-start px-6 sm:px-6 md:px-12">
+        <div className=" absolute inset-0 z-10 bg-black bg-opacity-40 text-white flex flex-col justify-center items-start px-6 sm:px-6 md:px-12">
           <motion.h1
             variants={{
               initial: { opacity: 0, y: 20 },
@@ -182,7 +193,7 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             transition={{ duration: 0.8 }}
-            className="text-3xl xl:text-5xl font-semibold leading-snug"
+            className="text-xl  md:text-3xl xl:text-5xl -mt-0 md:-mt-10 lg:-mt-20 font-semibold leading-snug"
           >
             Ihr Pflegedienst im Revier
           </motion.h1>
@@ -195,12 +206,12 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             transition={{ duration: 1 }}
-            className="mt-4 text-lg xl:text-xl"
+            className="mt-1 md:mt-3 text-sm  md:text-xl xl:text-3xl "
           >
             Ambulante Krankenpflege und Seniorenpflege zu Hause
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             variants={{
               initial: { opacity: 0, y: 20 },
               animate: { opacity: 1, y: 0 },
@@ -208,16 +219,16 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             transition={{ duration: 1.2 }}
-            className="mt-6 bg-primary/60 text-white/90 p-4 rounded-xl shadow-md flex items-center gap-4"
+            className="mt-3 bg-primary/60 text-white/90 p-4 rounded-xl shadow-md flex items-center gap-4"
           >
-            <FaPhone className="text-xl text--white/90" />
+            <FaPhone className="text-xl md:text-2xl text--white/90 transform -scale-x-100" />
             <div>
-              <div className="text-lg font-bold">0234 / 966 46 480</div>
-              <div className="text-sm text-white/90">
+              <div className="text-sm md:text-lg font-bold">0234 / 966 46 480</div>
+              <div className="text-xs md:text-sm text-white/90">
                 24h Notdienst – Beratung werktags 08:00 - 17:00 Uhr
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Buttons */}
           <motion.div
@@ -228,23 +239,35 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             transition={{ duration: 1.4 }}
-            className="flex gap-6 mt-6"
+            className="flex gap-3 md:gap-4 mt-3 md:mt-4"
           >
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/services/grundpflege")}
-              className="primary-btn border-2 border-white hover:border-primary hover:bg-secondary hover:text-white transition-transform duration-300 shadow-md hover:shadow-lg"
+              className="primary-btn border-2
+                          px-3 py-1 text-sm        <!-- default (mobile) -->
+                          sm:px-4 sm:py-2 sm:text-base
+                          md:px-6 md:py-3 md:text-lg
+                          lg:px-8 lg:py-4 lg:text-xl
+                        border-white hover:border-primary hover:bg-secondary
+                         hover:text-white transition-transform duration-300 shadow-md
+                          hover:shadow-lg"
             >
-              Mehr erfahren
+            Erfahren Sie mehr
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/application-form")}
-              className="primary-btn border-2 border-white hover:border-primary hover:bg-secondary hover:text-white transition-transform duration-300 shadow-md hover:shadow-lg"
+              className="primary-btn border-2
+                px-3 py-1 text-sm        <!-- default (mobile) -->
+                          sm:px-4 sm:py-2 sm:text-base
+                          md:px-6 md:py-3 md:text-lg
+                          lg:px-8 lg:py-4 lg:text-xl
+              border-white hover:border-primary hover:bg-secondary hover:text-white transition-transform duration-300 shadow-md hover:shadow-lg"
             >
-              Kostenlos beraten lassen
+            Kontakt
             </motion.button>
           </motion.div>
         </div>
@@ -277,7 +300,7 @@ const Hero = () => {
             &times;
           </button>
           <iframe
-            src={popupVideoUrl}
+            src={Video}
             className="w-full h-[calc(100vh-200px)] object-cover"
             title="Hero Video"
             allow="autoplay; fullscreen"

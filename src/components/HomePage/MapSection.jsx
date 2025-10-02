@@ -28,7 +28,7 @@ const MapSection = () => {
             Pflege, wie das Revier: direkt, stark, herzlich.
           </p>
           {/* Contact Info */}
-          <div className="flex flex-col gap-4">
+          {/* <div className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
               <FaPhoneAlt className="text-secondary text-xl" />
               <span className="text-primary/90 text-base md:text-lg">
@@ -41,7 +41,7 @@ const MapSection = () => {
                 info@sernitas-care.com
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Image Content */}

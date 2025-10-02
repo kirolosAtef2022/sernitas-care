@@ -91,7 +91,7 @@ const Kooperationsnetzwerk = () => {
             </p>
           </div>
           <div className="bg-white rounded-2xl shadow-2xl p-8 flex flex-col h-full">
-            <h4 className="text-lg font-bold text-primary/90">Sprachschulen</h4>
+            <h4 className="text-lg font-bold text-primary/90">Gesundheitseine</h4>
             <p className="text-primary/90 mt-2">
               Sie sind eine Sprachschule, die Sprachkurse auf den Niveaustufen
               A1 bis B2 anbietet und möchten mit uns kooperieren? Dann

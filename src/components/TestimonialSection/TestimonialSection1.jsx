@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
 import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
 
-import TestimonialImg from "../../assets/aboutPage/hr-1.jpg";
+import TestimonialImg from "../../assets/aboutPage/hr-1.10.jpg";
 
 import CachedImage from "../CachedImage";
 
@@ -19,7 +19,7 @@ const TestimonialSection1 = () => {
   const videoUrl = "https://www.youtube.com/embed/5ORB8IWFxMo"; // (example) format of your YouTube video ID
 
   return (
-    <div className="bg-primary/30 py-16 px-6 lg:px-12">
+    <div className="bg-primary-700 py-16 px-6 lg:px-12">
       <motion.div
         className="container flex flex-col md:flex-row items-center justify-center gap-8"
         initial={{ opacity: 0 }}
@@ -39,7 +39,7 @@ const TestimonialSection1 = () => {
         >
           {/* Border Circle */}
           <motion.div
-            className="absolute inset-0 rounded-full border-4 border-primary/90"
+            className="absolute inset-0 rounded-full border-4 border-primary-500"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -64,8 +64,8 @@ const TestimonialSection1 = () => {
         >
           <div className="relative">
             {/* FaQuoteLeft dynamically aligned to the start of the paragraph */}
-            <FaQuoteLeft className="absolute -top-2 -left-10 text-primary/90 text-3xl md:text-4xl" />
-            <p className="font-sour text-primary/90 text-md xl:text-lg text-justify leading-relaxed italic pb-4">
+            <FaQuoteLeft className="absolute -top-2 -left-10 text-primary-500 text-3xl md:text-4xl" />
+            <p className="font-sour text-primary-500 text-md xl:text-lg text-justify leading-relaxed italic pb-4">
               Der respektvolle und vertrauensvolle Umgang mit Menschen gehört zu
               den elementaren Bestandteilen unseres Handelns und spiegelt sich
               auch in unserem Namen wieder. Zusammengesetzt aus den lateinischen
@@ -74,12 +74,12 @@ const TestimonialSection1 = () => {
               Dienst am Menschen.
             </p>
             {/* FaQuoteRight dynamically aligned to the bottom of the paragraph */}
-            <FaQuoteRight className="absolute -bottom-5 right-0 text-primary/90 text-3xl md:text-4xl" />
+            <FaQuoteRight className="absolute -bottom-5 right-0 text-primary-500 text-3xl md:text-4xl" />
           </div>
-          <p className="font-ephesis text-primary/90 text-3xl font-bold tracking-wide">
+          <p className="font-ephesis text-primary-500 text-3xl font-bold tracking-wide">
             Dr. Ali Yildiz
           </p>
-          <p className="text-primary/90">Geschäftsführer</p>
+          <p className="text-primary-500">Geschäftsführer</p>
         </motion.div>
       </motion.div>
 

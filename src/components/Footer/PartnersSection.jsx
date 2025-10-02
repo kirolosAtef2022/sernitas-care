@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import SernitasGroup from "../../assets/footerSection/sernitas-group.png";
-import SernitasHR from "../../assets/footerSection/sernitas-hr.png";
+import SernitasHR from "../../assets/footerSection/sernitas-hr1.png";
 import SernitasKliniken from "../../assets/footerSection/sernitas-kliniken.png";
 import SernitasInstitute from "../../assets/footerSection/sernitas-institute.png";
 

@@ -1,20 +1,20 @@
-/** @type {import('tailwindcss').Config} */
+// /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#144647", // Main color
-          500: "#06b6d4", // Additional shade
-          700: "#0e7490", // Additional shade
+          DEFAULT: "#058169", // Top text
+          500: "#144549",     // Big headings
+          700: "#CFEAE1",     // Markup/accent
         },
         secondary: "#24836d", // Secondary color
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
-        ephesis: ["Ephesis", "cursive"],
-        sour: ["Sour Gummy", "cursive"],
+        sans: ["Poppins", "sans-serif"], // Main text
+        ephesis: ["Ephesis", "cursive"], // Decorative
+        sour: ["Sour Gummy", "cursive"], // Decorative
       },
       container: {
         center: true,
