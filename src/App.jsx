@@ -252,7 +252,7 @@ import PflegeBlog from "./components/WissenswertesPage/PflegeBlog";
 import BlogPage from "./components/WissenswertesPage/BlogPage";
 
 import PropTypes from "prop-types";
-
+//const videoRef = useRef(null);
 const Home = () => {
   return (
     <>

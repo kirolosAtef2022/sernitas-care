@@ -23,12 +23,14 @@ const SideHoverIcons = () => {
         {/* Phone */}
         <a
           href="tel:+4923496646480"
-          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+          className="h-10 flex items-center bg-primary-500 hover:bg-secondary rounded-md shadow text-white px-2"
         >
           <FaPhone className="text-lg shrink-0" />
           <span
             className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
-              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+              hover
+                ? "opacity-100 visible pointer-events-auto"
+                : "opacity-0 invisible pointer-events-none"
             }`}
           >
             +49 234 966 46 480
@@ -38,12 +40,14 @@ const SideHoverIcons = () => {
         {/* Email */}
         <a
           href="mailto:info@sernitas-care.com"
-          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+          className="h-10 flex items-center bg-primary-500 hover:bg-secondary rounded-md shadow text-white px-2"
         >
           <FaEnvelope className="text-lg shrink-0" />
           <span
             className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
-              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+              hover
+                ? "opacity-100 visible pointer-events-auto"
+                : "opacity-0 invisible pointer-events-none"
             }`}
           >
             info@sernitas-care.com
@@ -53,12 +57,14 @@ const SideHoverIcons = () => {
         {/* Contact Form */}
         <a
           href="/contact"
-          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+          className="h-10 flex items-center bg-primary-500 hover:bg-secondary rounded-md shadow text-white px-2"
         >
           <FaAngleDoubleLeft className="text-lg shrink-0" />
           <span
             className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
-              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+              hover
+                ? "opacity-100 visible pointer-events-auto"
+                : "opacity-0 invisible pointer-events-none"
             }`}
           >
             Zum Kontaktformular
@@ -70,12 +76,14 @@ const SideHoverIcons = () => {
           href="https://www.facebook.com/sernitasglobal"
           target="_blank"
           rel="noopener noreferrer"
-          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+          className="h-10 flex items-center bg-primary-500 hover:bg-secondary rounded-md shadow text-white px-2"
         >
           <FaFacebookF className="text-lg shrink-0" />
           <span
             className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
-              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+              hover
+                ? "opacity-100 visible pointer-events-auto"
+                : "opacity-0 invisible pointer-events-none"
             }`}
           >
             Facebook
@@ -87,12 +95,14 @@ const SideHoverIcons = () => {
           href="https://www.instagram.com/sernitashrturkey?igsh=MWphd210cjVod3hjbg=="
           target="_blank"
           rel="noopener noreferrer"
-          className="h-10 flex items-center bg-primary/90 hover:bg-secondary/90 rounded-md shadow text-white px-2"
+          className="h-10 flex items-center bg-primary-500 hover:bg-secondary rounded-md shadow text-white px-2"
         >
           <FaInstagram className="text-lg shrink-0" />
           <span
             className={`ml-2 whitespace-nowrap overflow-hidden transition-opacity duration-300 ${
-              hover ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
+              hover
+                ? "opacity-100 visible pointer-events-auto"
+                : "opacity-0 invisible pointer-events-none"
             }`}
           >
             Instagram

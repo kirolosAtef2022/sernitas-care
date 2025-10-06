@@ -1,58 +1,73 @@
+//
+import { HomeIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { slideBottom } from "../../utility/animation";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-// import Logo from "../../assets/footerSection/logo.png";
 import Logo from "../../assets/footerSection/logo1.10.svg";
-
 import CachedImage from "../CachedImage";
 
 const Navbar = () => {
   const navigate = useNavigate();
-
-  // showning the navbar when the the using scroll or when the video finished
+  //for controlling font color in Home Page
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  // === SCROLL STATE (drives transparent vs white) ===
   const [scrolled, setScrolled] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
-  const videoRef = useRef(null);
 
-  //end of code
-
+  // === UI STATE ===
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search bar
-  const [searchQuery, setSearchQuery] = useState(""); // State for search input
-  const [searchResults, setSearchResults] = useState([]); // State for search results
-  const [isSearchListVisible, setIsSearchListVisible] = useState(false); // State for search list visibility
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearchListVisible, setIsSearchListVisible] = useState(false);
 
-  const searchRef = useRef(null); // Ref for the search bar container
-  const inputRef = useRef(null); // Ref for the search input
+  // Refs
+  const searchRef = useRef(null);
+  const inputRef = useRef(null);
+  const hideDropdownTimeoutRef = useRef(null);
 
-  // Define hideDropdownTimeout
-  let hideDropdownTimeout;
+  // ===== Scroll listener (ONLY scroll behavior) =====
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+    onScroll(); // initialize on mount (handles reload mid-page)
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  // ==================================================
+  // Listen to the hero video's "ended" event
+  useEffect(() => {
+    const onHeroEnd = () => setVideoEnded(true);
+    window.addEventListener("heroVideoEnded", onHeroEnd);
+    return () => window.removeEventListener("heroVideoEnded", onHeroEnd);
+  }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  // Toggles
+  const toggleMenu = () => setIsMenuOpen((p) => !p);
   const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen); // Toggle search bar visibility
-    setSearchQuery(""); // Clear search query
-    setSearchResults([]); // Clear search results
+    setIsSearchOpen((p) => !p);
+    setSearchQuery("");
+    setSearchResults([]);
+    setIsSearchListVisible(false);
   };
 
+  // Search
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
 
-    // Example searchable items (replace with actual data from your project)
     const searchableItems = [
       { title: "Unsere Leistungen", link: "/services/grundpflege" },
       { title: "Grundpflege", link: "/services/grundpflege" },
       { title: "Behandlungspflege", link: "/services/behandlungspflege" },
       { title: "Verhinderungspflege", link: "/services/verhinderungspflege" },
       {
-        title: "Betreuungs- und Entlastungsleistungen",
+        title: "Betreuungs und Entlastungsleistungen",
         link: "/services/betreuung-entlastung",
       },
       { title: "24h - Rufbereitschaft", link: "/services/rufbereitschaft" },
@@ -78,88 +93,55 @@ const Navbar = () => {
       { title: "AGB", link: "/general-terms" },
     ];
 
-    // Filter results based on the query
     const results = searchableItems.filter((item) =>
       item.title.toLowerCase().includes(query)
     );
     setSearchResults(results);
+    setIsSearchListVisible(results.length > 0);
   };
 
   const handleResultClick = (link) => {
-    navigate(link); // Navigate to the selected page
-    setIsSearchOpen(false); // Close the search bar
+    navigate(link);
+    setIsSearchOpen(false);
+    setIsSearchListVisible(false);
   };
 
-  // Close search bar when clicking outside
+  // Close search when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setIsSearchOpen(false); // Close the search bar
+        setIsSearchOpen(false);
+        setIsSearchListVisible(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+  const solid = scrolled || videoEnded;
 
+  // Start white on Home before solid; otherwise your previous colors
+  const navBgClass = solid ? "bg-white shadow-sm" : "bg-transparent";
+  const textClass = solid
+    ? "text-black"
+    : isHome
+    ? "text-white"
+    : "text-primary-500";
+  const hoverLinkClass = solid
+    ? "hover:text-black"
+    : isHome
+    ? "hover:text-white"
+    : "hover:text-black";
+  const burgerBarClass = solid
+    ? "bg-black"
+    : isHome
+    ? "bg-white"
+    : "bg-primary-500";
 
-    // Scroll listener
-  useEffect(() => {
-  if (typeof window !== "undefined") console.log("hello"); // only run in browser
+  // keep dropdown styles as you had them
+  const dropdownBg = "bg-white";
+  const dropdownItem = "text-black hover:text-black hover:bg-primary-700";
 
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 50);
-    console.log("ScrollY:", window.scrollY);
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-  
-    // Video end listener
-    useEffect(() => {
-      const video = videoRef.current;
-      if (!video) return;
-  
-      const handleEnded = () => setVideoEnded(true);
-      video.addEventListener("ended", handleEnded);
-  
-      return () => video.removeEventListener("ended", handleEnded);
-    }, []);
-    //const navbarSolid = scrolled || videoEnded;
-  
-
-  // Close search bar or list when clicking outside
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (
-  //       searchRef.current &&
-  //       !searchRef.current.contains(event.target) &&
-  //       inputRef.current &&
-  //       !inputRef.current.contains(event.target)
-  //     ) {
-  //       // Hide both search bar and search list when clicking outside the entire search bar area
-  //       setIsSearchListVisible(false);
-  //       setIsSearchOpen(false);
-  //     } else if (
-  //       searchRef.current &&
-  //       searchRef.current.contains(event.target) &&
-  //       inputRef.current &&
-  //       !inputRef.current.contains(event.target)
-  //     ) {
-  //       // Hide only the search list when clicking inside the search bar area but outside the search list
-  //       setIsSearchListVisible(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
-
+  // ===== Nav items =====
   const navItems = [
     {
       title: <span>Unsere&nbsp;Leistungen</span>,
@@ -168,7 +150,7 @@ const Navbar = () => {
         { title: "Behandlungspflege", link: "/services/behandlungspflege" },
         { title: "Verhinderungspflege", link: "/services/verhinderungspflege" },
         {
-          title: "Betreuungs- und Entlastungsleistungen",
+          title: "Betreuungs und Entlastungsleistungen",
           link: "/services/betreuung-entlastung",
         },
         { title: "24h - Rufbereitschaft", link: "/services/rufbereitschaft" },
@@ -201,68 +183,60 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Desktop Navbar */}
+      {/* NAVBAR */}
       <motion.div
         variants={slideBottom(0.2)}
         initial="initial"
         animate="animate"
-        // className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black bg-opacity-30 py-1 "
-          className={`fixed top-0 left-0 w-full z-50 py-2 md:py-1 px-4
-          ${scrolled ? "backdrop-blur-md bg-black bg-opacity-30"  : "bg-opacity-30"}
-          `}
+        className={`fixed top-0 left-0 w-full z-50 px-2 py-1 transition-colors duration-300 ${navBgClass}`}
       >
         <div className="container flex justify-between items-center p-2 m-0">
-          {/* Clickable Logo */}
-          {/* <a href="/" className="flex items-center cursor-pointer">
+          {/* Logo */}
+          <a
+            href="/"
+            aria-label="Sernitas Care – Startseite"
+            title="Startseite"
+            className="group inline-flex items-center justify-center"
+          >
             <CachedImage
               src={Logo}
-              alt="sernitas care logo"
-              className="w-[130px] flex-shrink-0 hover:scale-105 transition-transform duration-300"
+              alt="Sernitas Care"
+              width={200}
+              height={60}
+              draggable={false}
+              decoding="async"
+              fetchpriority="high"
+              className="w-[200px] h-[50px] object-contain transition-transform duration-200 transform-gpu group-hover:scale-[1.04]"
             />
-          </a> */}
-<a
-  href="/"
-  aria-label="Sernitas Care – Home"
-  title="Home"
-  className="group relative inline-flex items-center rounded-xl p-1.5 -m-1.5 cursor-pointer
-             transition-all duration-200
-             ring-1 ring-transparent 
-             active:scale-95
-             focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
->
-  <CachedImage
-    src={Logo}
-    alt="Sernitas Care"
-    width={280}
-    height={64}
-    draggable={false}
-    decoding="async"
-    fetchpriority="high"
-    className="h-8 md:h-9 lg:h-10 w-auto object-contain
-             transition-transform duration-200 transform-gpu
-             group-hover:scale-[1.04] group-active:scale-95"
-  />
-</a>
-
-
-
-
+          </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10 mx-5">
-            <ul className="flex gap-2 sm:gap-3 md:gap-3 lg:gap-8 xl:gap-10 text-white font-medium tracking-wide items-center">
-              {/* Home Icon */}
-
+          <div className="hidden xl:flex items-center gap-10 mx-1">
+            <ul
+              className={`flex gap-5 xl:gap-10 tracking-wide items-center font-light  ${textClass}`}
+            >
+              <li className="flex items-center gap-2">
+                <a
+                  href="/"
+                  className={`text-sm md:text-md lg:text-lg  flex items-center gap-2 ${{
+                    hoverLinkClass,
+                  }}`}
+                >
+                  <HomeIcon className="w-5 h-5" />
+                  Startseite
+                </a>
+              </li>
               {navItems.map((item, idx) => (
                 <li
                   key={idx}
                   className="relative group flex items-center gap-2"
                   onMouseEnter={() => {
-                    clearTimeout(hideDropdownTimeout);
+                    if (hideDropdownTimeoutRef.current)
+                      clearTimeout(hideDropdownTimeoutRef.current);
                     setActiveDropdown(idx);
                   }}
                   onMouseLeave={() => {
-                    hideDropdownTimeout = setTimeout(() => {
+                    hideDropdownTimeoutRef.current = setTimeout(() => {
                       setActiveDropdown(null);
                     }, 300);
                   }}
@@ -277,18 +251,26 @@ const Navbar = () => {
                         ? "/wissenswertes/faq"
                         : "/"
                     }
-                    className="uppercase text-xs md:text-sm lg:text-base font-bold hover:text-secondary 
-                    flex items-center justify-center"
+                    className={`font-sans text-sm md:text-md lg:text-lg  ${hoverLinkClass} flex items-center justify-center`}
                   >
                     {item.title}
+                    {item.subItems && (
+                      <ChevronDownIcon
+                        strokeWidth={3}
+                        className=" w-4 h-4 ml-1 inline-block "
+                      />
+                    )}
                   </a>
 
                   {activeDropdown === idx && item.subItems && (
                     <ul
-                      className="absolute left-0 top-full mt-2 bg-black bg-opacity-80 rounded-lg shadow-lg m-4 w-64"
-                      onMouseEnter={() => clearTimeout(hideDropdownTimeout)}
+                      className={`absolute left-0 top-full mt-2 shadow-lg m-2 w-60 ${dropdownBg}`}
+                      onMouseEnter={() => {
+                        if (hideDropdownTimeoutRef.current)
+                          clearTimeout(hideDropdownTimeoutRef.current);
+                      }}
                       onMouseLeave={() => {
-                        hideDropdownTimeout = setTimeout(() => {
+                        hideDropdownTimeoutRef.current = setTimeout(() => {
                           setActiveDropdown(null);
                         }, 300);
                       }}
@@ -297,7 +279,7 @@ const Navbar = () => {
                         <li key={i}>
                           <a
                             href={sub.link}
-                            className="block p-4 text-white hover:text-secondary hover:bg-white/10"
+                            className={`block p-4 ${dropdownItem}`}
                           >
                             {sub.title}
                           </a>
@@ -309,10 +291,10 @@ const Navbar = () => {
               ))}
 
               {/* Karriere */}
-              <li className=" text-md flex items-center">
+              <li className="text-md flex items-center">
                 <a
                   href="/karriere"
-                  className="uppercase text-xs md:text-sm lg:text-base  font-bold hover:text-secondary flex items-center justify-center"
+                  className={`font-sans text-sm md:text-md lg:text-lg ${hoverLinkClass} flex items-center justify-center`}
                 >
                   Karriere
                 </a>
@@ -322,58 +304,36 @@ const Navbar = () => {
               <li className="flex items-center">
                 <a
                   href="/contact"
-                  className="uppercase text-xs md:text-sm lg:text-base font-bold hover:text-secondary flex items-center justify-center"
+                  className={`font-sans text-sm md:text-md lg:text-lg ${hoverLinkClass} flex items-center justify-center`}
                 >
                   Kontakt
                 </a>
               </li>
-
-              {/* Language Selector */}
-              {/* <li className="relative group flex items-center">
-                <button className="uppercase text-lg font-bold hover:text-secondary flex items-center gap-2 justify-center">
-                  <i className="fas fa-globe"></i>
-                </button>
-                <ul className="absolute left-0 top-full mt-2 bg-black bg-opacity-90 rounded-lg shadow-lg py-2 px-4 w-32 hidden group-hover:block">
-                  <li>
-                    <button className="block px-2 py-1 text-white hover:text-secondary hover:bg-white/10 rounded">
-                      Deutsch
-                    </button>
-                  </li>
-                  <li>
-                    <button className="block px-2 py-1 text-white hover:text-secondary hover:bg-white/10 rounded">
-                      Türkisch
-                    </button>
-                  </li>
-                  <li>
-                    <button className="block px-2 py-1 text-white hover:text-secondary hover:bg-white/10 rounded">
-                      Englisch
-                    </button>
-                  </li>
-                </ul>
-              </li> */}
-
-              {/* Search Icon */}
-             
             </ul>
           </div>
-          <div className="text-white hidden md:flex hover:text-secondary mr-8 sm:mr-3">
-                 <li className="flex items-center">
-                <button onClick={toggleSearch} className="text-lg font-bold">
-                  <i className="fas fa-search"></i>
-                </button>
-              </li>
 
+          {/* Search Icon */}
+          <div
+            className={`hidden xl:flex mr-8 sm:mr-3 ${textClass} ${hoverLinkClass}`}
+          >
+            <li className="flex items-center list-none">
+              <button onClick={toggleSearch} className="text-lg font-bold">
+                <i className="fas fa-search"></i>
+              </button>
+            </li>
           </div>
+
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex justify-end w-full">
+          <div className="xl:hidden flex justify-end w-full">
             <button
               onClick={toggleMenu}
-              className="text-white focus:outline-none hover:shadow-md transition-shadow duration-300"
+              className={`focus:outline-none transition-shadow duration-300 ${textClass}`}
+              aria-label="Open menu"
             >
               <div className="space-y-1">
-                <span className="block w-6 h-0.5 bg-white"></span>
-                <span className="block w-6 h-0.5 bg-white"></span>
-                <span className="block w-6 h-0.5 bg-white"></span>
+                <span className={`block w-6 h-0.5 ${burgerBarClass}`}></span>
+                <span className={`block w-6 h-0.5 ${burgerBarClass}`}></span>
+                <span className={`block w-6 h-0.5 ${burgerBarClass}`}></span>
               </div>
             </button>
           </div>
@@ -383,20 +343,21 @@ const Navbar = () => {
       {/* Search Bar */}
       {isSearchOpen && (
         <div
-          ref={searchRef} // Attach ref to the search bar container
-          className="fixed top-16 left-0 w-full bg-primary/90 py-4 px-24 lg:px-72 z-50 border-t-2 border-t-secondary text-white"
+          ref={searchRef}
+          className={`fixed top-16 left-0 w-full py-5 xl:py-8 px-24 lg:px-47 z-50 ${
+            solid ? "bg-transparent  text-white" : "bg-transparent  text-white"
+          }`}
         >
           <input
+            ref={inputRef}
             type="text"
             value={searchQuery}
             onChange={handleSearch}
             placeholder="Search..."
-            className="search-input"
+            className="search-input w-full px-4 py-2 rounded border border-gray-300 "
           />
-          {searchResults.length > 0 && (
-            <ul
-              className="mt-4 text-primary/90 bg-gray-100 shadow-lg rounded max-h-64 overflow-y-auto" // Add scrollable styles
-            >
+          {isSearchListVisible && searchResults.length > 0 && (
+            <ul className="mt-4 text-black bg-gray-100 shadow-lg rounded max-h-64 overflow-y-auto">
               {searchResults.map((result, index) => (
                 <li
                   key={index}
@@ -409,33 +370,33 @@ const Navbar = () => {
             </ul>
           )}
           {searchQuery && searchResults.length === 0 && (
-            <p className="mt-4 text-gray-300">Keine Ergebnisse gefunden.</p>
+            <p className="mt-4 opacity-80">Keine Ergebnisse gefunden.</p>
           )}
         </div>
       )}
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-gray-800 bg-opacity-50">
+        <div className="fixed inset-0 z-50 bg-gray-800/60">
           <div className="backdrop-blur-md flex flex-col items-start p-6 text-white w-full h-full overflow-y-auto">
             <button
               onClick={toggleMenu}
-              className="absolute top-5 right-5 text-white text-2xl hover:shadow-md transition-shadow duration-300"
+              className="absolute top-5 right-5 text-white text-2xl"
+              aria-label="Close menu"
             >
               &times;
             </button>
-            <ul className="w-full space-y-6">
-              {/* Home Icon */}
+            <ul className="w-full space-y-6 mt-8">
               <li className="flex items-center gap-4 text-lg font-bold uppercase">
                 <a
                   href="/"
                   className="flex items-center gap-2 hover:text-secondary transition duration-300"
+                  onClick={toggleMenu}
                 >
                   <i className="fas fa-home"></i> Home
                 </a>
               </li>
 
-              {/* Main Menu Items */}
               {navItems.map((item, idx) => (
                 <li key={idx} className="w-full">
                   <div className="text-lg font-bold uppercase flex items-center justify-between">
@@ -457,44 +418,10 @@ const Navbar = () => {
                 </li>
               ))}
 
-              {/* Global Icon */}
-              {/* <li className="flex items-center gap-4 text-lg font-bold uppercase">
-                <button className="flex items-center gap-2 hover:text-secondary transition duration-300">
-                  <i className="fas fa-globe"></i> Language
-                </button>
-                <ul className="mt-2 space-y-2 pl-4">
-                  <li>
-                    <button className="block text-sm hover:text-secondary transition duration-300">
-                      Deutsch
-                    </button>
-                  </li>
-                  <li>
-                    <button className="block text-sm hover:text-secondary transition duration-300">
-                      Türkisch
-                    </button>
-                  </li>
-                  <li>
-                    <button className="block text-sm hover:text-secondary transition duration-300">
-                      Englisch
-                    </button>
-                  </li>
-                </ul>
-              </li> */}
-
-              {/* Search Icon */}
-              {/* <li className="flex items-center gap-4 text-lg font-bold uppercase">
-                <button
-                  onClick={toggleMenu}
-                  className="flex items-center gap-2 hover:text-secondary transition duration-300"
-                >
-                  <i className="fas fa-search"></i> Search
-                </button>
-              </li> */}
-
-              {/* Additional Buttons */}
               <li>
                 <a
                   href="/contact"
+                  onClick={toggleMenu}
                   className="w-full text-center px-8 py-2 bg-secondary text-white rounded-lg hover:bg-primary transition duration-300"
                 >
                   Kontakt
@@ -503,6 +430,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="/karriere"
+                  onClick={toggleMenu}
                   className="w-full text-center px-8 py-2 bg-secondary text-white rounded-lg hover:bg-primary transition duration-300"
                 >
                   Karriere

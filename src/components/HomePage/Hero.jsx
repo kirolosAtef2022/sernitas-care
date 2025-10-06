@@ -171,14 +171,15 @@ const Hero = () => {
           style={{ border: "none" }} // Replaces the deprecated frameBorder attribute
         /> */}
 
-           <video
+        <video
           className="w-full h-full object-cover"
           src={Video}
           title="Sernitas Video Background"
-           autoPlay
-            muted
-            playsInline
+          autoPlay
+          muted
+          playsInline
           style={{ border: "none" }} // Replaces the deprecated frameBorder attribute
+          onEnded={() => window.dispatchEvent(new Event("heroVideoEnded"))} // <-- ADD THIS
         />
       </div>
 
@@ -193,7 +194,7 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             transition={{ duration: 0.8 }}
-            className="text-xl  md:text-3xl xl:text-5xl -mt-0 md:-mt-10 lg:-mt-20 font-semibold leading-snug"
+            className="text-2xl  md:text-3xl xl:text-5xl -mt-0 md:-mt-10 lg:-mt-20 font-semibold leading-snug"
           >
             Ihr Pflegedienst im Revier
           </motion.h1>
@@ -206,7 +207,7 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             transition={{ duration: 1 }}
-            className="mt-1 md:mt-3 text-sm  md:text-xl xl:text-3xl "
+            className="mt-3 md:mt-5 text-md xl:text-xl mb-3 "
           >
             Ambulante Krankenpflege und Seniorenpflege zu Hause
           </motion.p>
@@ -245,29 +246,29 @@ const Hero = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/services/grundpflege")}
-              className="primary-btn border-2
+              className="primary-btn border-2 bg-primary-500
                           px-3 py-1 text-sm        <!-- default (mobile) -->
-                          sm:px-4 sm:py-2 sm:text-base
-                          md:px-6 md:py-3 md:text-lg
-                          lg:px-8 lg:py-4 lg:text-xl
+                          sm:px-2 sm:py-2 sm:text-base
+                          md:px-4 md:py-3 md:text-lg
+                          lg:px-6 lg:py-4 lg:text-xl
                         border-white hover:border-primary hover:bg-secondary
                          hover:text-white transition-transform duration-300 shadow-md
                           hover:shadow-lg"
             >
-            Erfahren Sie mehr
+              Erfahren Sie mehr
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/application-form")}
-              className="primary-btn border-2
+              className="primary-btn border-2 bg-primary-500
                 px-3 py-1 text-sm        <!-- default (mobile) -->
                           sm:px-4 sm:py-2 sm:text-base
                           md:px-6 md:py-3 md:text-lg
                           lg:px-8 lg:py-4 lg:text-xl
               border-white hover:border-primary hover:bg-secondary hover:text-white transition-transform duration-300 shadow-md hover:shadow-lg"
             >
-            Kontakt
+              Kontakt
             </motion.button>
           </motion.div>
         </div>

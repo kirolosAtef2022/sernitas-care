@@ -53,7 +53,7 @@ const Footer = () => {
             <CachedImage
               src={Logo}
               alt="Sernitas Logo"
-              className="w-[200px] mx-auto md:-mx-2 bg-primary-700 pr-1 pl-1 rounded-lg pb-.5"
+              className="w-[200px] bg-primary-700 pr-2 pl-1  pb-1"
             />
             <p className="font-sour text-lg">
               Wir globalisieren die Gesundheit!
@@ -305,16 +305,20 @@ const Footer = () => {
             className="space-y-4 text-center md:text-left"
           >
             <h4 className="text-xl font-bold">Kontakt aufnehmen</h4>
-             {/* <span className="font-bold">E-mail:</span> info@sernitas-care.com */}
-          <p className="w-full lg:text-left">
-  <a
-    href="mailto:info@sernitas-care.com"
-    className="inline-flex items-center gap-2  transition-colors duration-200"
-  >
-    
-    <span><span className="font-bold">E-mail : </span><span className="underline hover:text-secondary">info@sernitas-care.com</span></span>
-  </a>
-</p>
+            {/* <span className="font-bold">E-mail:</span> info@sernitas-care.com */}
+            <p className="w-full lg:text-left">
+              <a
+                href="mailto:info@sernitas-care.com"
+                className="inline-flex items-center gap-2  transition-colors duration-200"
+              >
+                <span>
+                  <span className="font-bold">E-mail : </span>
+                  <span className="underline hover:text-secondary">
+                    info@sernitas-care.com
+                  </span>
+                </span>
+              </a>
+            </p>
             <p>
               Sernitas GmbH
               <br />
@@ -325,9 +329,21 @@ const Footer = () => {
               44799 Bochum
             </p>
             <p>
-              <span className="font-bold">Tel : </span><a href="tel:+4923496646480" className="underline hover:text-secondary">+49 234 966 46 480</a> 
-              <br /> 
-              <span className="font-bold">Fax : </span><a href="tel:+4923496646480" className="underline hover:text-secondary">+49 234 966 46 480</a>
+              <span className="font-bold">Tel : </span>
+              <a
+                href="tel:+4923496646480"
+                className="underline hover:text-secondary"
+              >
+                +49 234 966 46 480
+              </a>
+              <br />
+              <span className="font-bold">Fax : </span>
+              <a
+                href="tel:+4923496646480"
+                className="underline hover:text-secondary"
+              >
+                +49 234 966 46 480
+              </a>
             </p>
           </motion.div>
         </motion.div>
