@@ -37,7 +37,7 @@ const AccordionSection = () => {
         variants={slideUp(0.2)}
         initial="initial"
         animate="animate" // Trigger animation only once
-        className="font-sour text-3xl xl:text-4xl font-bold text-center text-primary/90 -mb-10 md:-mb-6"
+        className="font-sour text-2xl xl:text-3xl font-bold text-center text-primary/90 -mb-10 md:-mb-6"
       >
         Fragen, die oft gestellt werden – Antworten, die helfen!
       </motion.h2>
@@ -109,7 +109,7 @@ const AccordionSection = () => {
               <button
                 onClick={() => setShowAll((prev) => !prev)}
                 className="w-full text-xl font-bold px-8 py-2 md:px-10 md:py-3 
-                 bg-primary/90 text-white rounded-xl shadow-2xl
+                 bg-transparent text-primary rounded-xl shadow-2xl
                  border border-primary/30 hover:bg-primary/80 hover:text-white 
                  transition duration-300 ease-out"
               >

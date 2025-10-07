@@ -5,16 +5,16 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#058169", // Top text
-          500: "#144549",     // Big headings
-          700: "#CFEAE1",     // Markup/accent
+          DEFAULT: "#144647", // Top text
+          500: "#144549", // Big headings
+          700: "#CFEAE1", // Markup/accent
         },
         secondary: "#24836d", // Secondary color
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"], // Main text
         ephesis: ["Ephesis", "cursive"], // Decorative
-        sour: ["Sour Gummy", "cursive"], // Decorative
+        sour: ["Poppins", "cursive"], // Decorative
       },
       container: {
         center: true,

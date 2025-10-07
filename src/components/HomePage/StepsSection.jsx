@@ -5,10 +5,10 @@ const StepsSection = () => {
     <section className="bg-gray-50 py-24 px-6 md:px-12 xl:px-44">
       <div className="max-w-6xl mx-auto text-center">
         {/* Section Title */}
-        <h2 className="font-sour text-primary/90 text-3xl md:text-4xl font-bold mb-2">
+        <h2 className="font-sour text-primary/90 text-2xl md:text-3xl font-bold mb-2">
           Sie brauchen einen Pflegedienst?
         </h2>
-        <p className="text-secondary font-ephesis text-4xl tracking-wide font-bold mb-8">
+        <p className="text-secondary font-ephesis text-2xl tracking-wide font-bold mb-8">
           So einfach geht’s
         </p>
 
@@ -20,7 +20,7 @@ const StepsSection = () => {
               <FaPhoneAlt className="text-2xl" />
             </div>
             <div className="text-center min-h-[60px]">
-              <p className="font-sour text-primary/90 text-base md:text-lg">
+              <p className="font-sour text-primary/90 text-sm md:text-md">
                 Rufen Sie uns an: <br />
                 <span className="font-sour font-bold">0234 / 966 46 480</span>
               </p>
@@ -57,8 +57,9 @@ const StepsSection = () => {
               <FaCar className="text-2xl" />
             </div>
             <div className="text-center min-h-[60px]">
-              <p className="font-sour text-primary/90 text-base md:text-lg">
-                Wir kommen<br />
+              <p className="font-sour text-primary/90 text-sm md:text-md">
+                Wir kommen
+                <br />
                 bei Ihnen vorbei
               </p>
             </div>
@@ -94,7 +95,7 @@ const StepsSection = () => {
               <FaFileAlt className="text-2xl" />
             </div>
             <div className="text-center min-h-[60px]">
-              <p className="font-sour text-primary/90 text-base md:text-lg">
+              <p className="font-sour text-primary/90 text-sm md:text-md">
                 Sie bekommen <br />
                 ein Angebot
               </p>
@@ -131,7 +132,7 @@ const StepsSection = () => {
               <FaHome className="text-2xl" />
             </div>
             <div className="text-center min-h-[60px]">
-              <p className="font-sour text-primary/90 text-base md:text-lg">
+              <p className="font-sour text-primary/90 text-sm md:text-md">
                 Ihr Pflegedienst kommt <br />
                 schon am nächsten Tag!
               </p>

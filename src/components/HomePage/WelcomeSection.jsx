@@ -10,10 +10,10 @@ const WelcomeSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Top Heading */}
         <div className="text-center mb-12">
-          <h2 className="font-sour text-primary text-xl lg:text-2xl font-medium mb-4">
+          <h2 className="font-sans text-primary text-xl lg:text-2xl font-medium mb-4">
             Herzlich Willkommen bei Sernitas Care
           </h2>
-          <h1 className="font-sour text-primary-500 text-3xl md:text-4xl font-bold mb-6 leading-snug">
+          <h1 className="font-sans text-primary-500 text-xl md:text-3xl font-bold mb-6 leading-snug">
             Professionelle Pflege & Betreuung mit interkulturellem Verständnis
           </h1>
         </div>
@@ -44,7 +44,9 @@ const WelcomeSection = () => {
             viewport={{ once: false, amount: 0.2 }}
           >
             <h3 className="relative inline-block  text-primary-500  text-xl md:text-2xl font-semibold mb-4">
-             <span className="bg-gradient-to-t from-primary-700 to-transparent">Sernitas Care – Ihre vertrauensvolle Unterstützung im Alltag</span> 
+              <span className="bg-gradient-to-t from-primary-700 to-transparent">
+                Sernitas Care – Ihre vertrauensvolle Unterstützung im Alltag
+              </span>
             </h3>
             <p className="text-base md:text-lg leading-relaxed text-primary-500 mb-4 text-justify">
               Bei Sernitas Care bieten wir Ihnen eine Vielzahl an
@@ -56,8 +58,11 @@ const WelcomeSection = () => {
             <p className="text-base md:text-lg leading-relaxed text-primary-500 mb-4 text-justify">
               Mit unseren Pflege- und Betreuungsleistungen unterstützen wir Sie
               in den Bereichen, die im Alltag besonders wichtig sind:{" "}
-              <span className="font-semibold text-primary-500">Körperpflege</span>
-              , <span className="font-semibold text-primary-500">Ernährung</span>{" "}
+              <span className="font-semibold text-primary-500">
+                Körperpflege
+              </span>
+              ,{" "}
+              <span className="font-semibold text-primary-500">Ernährung</span>{" "}
               und{" "}
               <span className="font-semibold text-primary-500">Mobilität</span>.
             </p>

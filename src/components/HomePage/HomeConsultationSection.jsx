@@ -97,7 +97,7 @@ const HomeConsultationSection = () => {
       <div className="flex flex-col lg:flex-row gap-12">
         {/* Left Section */}
         <div className="lg:w-[60%] space-y-6">
-          <h2 className="font-sour text-primary/90 text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className="font-sans text-primary/90 text-3xl lg:text-4xl font-bold mb-4">
             Mehr Lebensqualität in den eigenen vier Wänden
           </h2>
           <p className="text-gray-500 leading-relaxed text-justify">
@@ -141,7 +141,7 @@ const HomeConsultationSection = () => {
 
         {/* Right Section */}
         <div className="lg:w-[40%] bg-white shadow-2xl rounded-xl items-center text-center px-6 py-8">
-          <h3 className="font-sour text-primary/90 text-2xl font-bold mb-8">
+          <h3 className="font-sans text-primary/90 text-2xl font-bold mb-8">
             Kostenfreie Beratung
           </h3>
           <div className="flex justify-center items-center gap-4 text-center mb-6">
@@ -151,15 +151,15 @@ const HomeConsultationSection = () => {
               className="w-24 h-24 rounded-full object-cover border-2 border-primary/90"
             />
             <div>
-              <p className="font-sour text-primary/90 text-2xl font-bold tracking-wide">
-                 Ms. Nevile
+              <p className="font-sans text-primary/90 text-2xl font-bold tracking-wide">
+                Ms. Nevile
               </p>
               <p className="text-gray-400 text-sm">Mo - Fr 08:00 - 17:00</p>
               <p className="text-primary/90 font-bold">0234 / 966 46 480</p>
             </div>
           </div>
           <form onSubmit={handleSubmit}>
-            <p className="font-sour text-primary/90 font-medium text-xl mb-8">
+            <p className="font-sans text-primary/90 font-medium text-xl mb-8">
               Wir rufen Sie zurück auch gern!
             </p>
             <div className="ml-4 mr-4 mb-4 text-gray-700">

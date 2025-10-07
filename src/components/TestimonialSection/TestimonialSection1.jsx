@@ -65,7 +65,7 @@ const TestimonialSection1 = () => {
           <div className="relative">
             {/* FaQuoteLeft dynamically aligned to the start of the paragraph */}
             <FaQuoteLeft className="absolute -top-2 -left-10 text-primary-500 text-3xl md:text-4xl" />
-            <p className="font-sour text-primary-500 text-md xl:text-lg text-justify leading-relaxed italic pb-4">
+            <p className="font-sour text-primary-500 text-md xl:text-md text-justify leading-relaxed italic pb-4">
               Der respektvolle und vertrauensvolle Umgang mit Menschen gehört zu
               den elementaren Bestandteilen unseres Handelns und spiegelt sich
               auch in unserem Namen wieder. Zusammengesetzt aus den lateinischen
