@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#144647", // Top text
+          DEFAULT: "#144549", // default text
           500: "#144549", // Big headings
           700: "#CFEAE1", // Markup/accent
         },
-        secondary: "#24836d", // Secondary color
+        secondary: "#058169", // Top text
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"], // Main text

@@ -306,7 +306,7 @@ const App = () => {
   return (
     <ErrorBoundary>
       <Navbar />
-      <SideHoverIcons />
+      {/* <SideHoverIcons /> */}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

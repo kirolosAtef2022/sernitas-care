@@ -1,5 +1,4 @@
 import AboutImg4 from "../../assets/aboutPage/hero-4.jpg";
-
 import CachedImage from "../CachedImage";
 
 const WirSindSernitas = () => {

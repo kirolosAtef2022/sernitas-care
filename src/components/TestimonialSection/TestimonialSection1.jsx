@@ -19,7 +19,7 @@ const TestimonialSection1 = () => {
   const videoUrl = "https://www.youtube.com/embed/5ORB8IWFxMo"; // (example) format of your YouTube video ID
 
   return (
-    <div className="bg-primary-700 py-16 px-6 lg:px-12">
+    <div className="bg-primary-700 py-7 px-6 lg:px-12">
       <motion.div
         className="container flex flex-col md:flex-row items-center justify-center gap-8"
         initial={{ opacity: 0 }}
@@ -56,7 +56,7 @@ const TestimonialSection1 = () => {
 
         {/* Testimonial Text */}
         <motion.div
-          className="flex-1 text-gray-800 text-center md:text-left px-10"
+          className=" flex-1 text-gray-800 text-center md:text-left px-10"
           initial={{ x: 100, opacity: 0 }} // Start from the right
           whileInView={{ x: 0, opacity: 1 }} // Animate to the center
           viewport={{ once: false, amount: 0.2 }} // Trigger animation every time it enters the viewport
@@ -64,8 +64,8 @@ const TestimonialSection1 = () => {
         >
           <div className="relative">
             {/* FaQuoteLeft dynamically aligned to the start of the paragraph */}
-            <FaQuoteLeft className="absolute -top-2 -left-10 text-primary-500 text-3xl md:text-4xl" />
-            <p className="font-sour text-primary-500 text-md xl:text-md text-justify leading-relaxed italic pb-4">
+            <FaQuoteLeft className="absolute -top-2 -left-10 text-primary-500 text-xl lg:text-2xl" />
+            <p className="font-sour text-primary-500 text-xs lg:text-sm text-justify leading-relaxed italic pb-4">
               Der respektvolle und vertrauensvolle Umgang mit Menschen gehört zu
               den elementaren Bestandteilen unseres Handelns und spiegelt sich
               auch in unserem Namen wieder. Zusammengesetzt aus den lateinischen
@@ -74,12 +74,12 @@ const TestimonialSection1 = () => {
               Dienst am Menschen.
             </p>
             {/* FaQuoteRight dynamically aligned to the bottom of the paragraph */}
-            <FaQuoteRight className="absolute -bottom-5 right-0 text-primary-500 text-3xl md:text-4xl" />
+            <FaQuoteRight className="absolute -bottom-5 right-0 text-primary-500 text-xl lg:text-2xl" />
           </div>
-          <p className="font-ephesis text-primary-500 text-3xl font-bold tracking-wide">
+          <p className="font-ephesis text-primary-500 text-2xl font-bold tracking-wide">
             Dr. Ali Yildiz
           </p>
-          <p className="text-primary-500">Geschäftsführer</p>
+          <p className="text-primary-500 text-sm">Geschäftsführer</p>
         </motion.div>
       </motion.div>
 

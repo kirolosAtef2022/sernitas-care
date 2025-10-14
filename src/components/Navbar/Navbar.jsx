@@ -7,7 +7,7 @@ import { slideBottom } from "../../utility/animation";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import Logo from "../../assets/footerSection/logo1.10.svg";
+import Logo from "../../assets/footerSection/logoHome.png";
 import CachedImage from "../CachedImage";
 
 const Navbar = () => {
@@ -190,7 +190,7 @@ const Navbar = () => {
         animate="animate"
         className={`fixed top-0 left-0 w-full z-50 px-2 py-1 transition-colors duration-300 ${navBgClass}`}
       >
-        <div className="container flex justify-between items-center p-2 m-0">
+        <div className=" flex justify-between items-center">
           {/* Logo */}
           <a
             href="/"
@@ -201,28 +201,28 @@ const Navbar = () => {
             <CachedImage
               src={Logo}
               alt="Sernitas Care"
-              width={200}
-              height={60}
+              width={150}
+              height={50}
               draggable={false}
               decoding="async"
               fetchpriority="high"
-              className="w-[200px] h-[50px] object-contain transition-transform duration-200 transform-gpu group-hover:scale-[1.04]"
+              className="w-[140px] h-[40px] object-contain transition-transform duration-200 transform-gpu group-hover:scale-[1.04]"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center gap-10 mx-1">
+          <div className="hidden lg:flex items-center gap-10 mx-1">
             <ul
-              className={`flex gap-5 xl:gap-10 tracking-wide items-center font-light  ${textClass}`}
+              className={` flex gap-3 md:gap-5 xl:gap-6 tracking-wide items-center font-light  ${textClass}`}
             >
               <li className="flex items-center gap-2">
                 <a
                   href="/"
-                  className={`text-sm md:text-md lg:text-lg  flex items-center gap-2 ${{
+                  className={`text-xs md:text-sm lg:text-md font-normal flex items-center gap-2 ${{
                     hoverLinkClass,
                   }}`}
                 >
-                  <HomeIcon className="w-5 h-5" />
+                  {/* <HomeIcon className="w-5 h-5" /> */}
                   Startseite
                 </a>
               </li>
@@ -251,13 +251,13 @@ const Navbar = () => {
                         ? "/wissenswertes/faq"
                         : "/"
                     }
-                    className={`font-sans text-sm md:text-md lg:text-lg  ${hoverLinkClass} flex items-center justify-center`}
+                    className={`font-sans text-xs md:text-sm lg:text-md font-normal  ${hoverLinkClass} flex items-center justify-center`}
                   >
                     {item.title}
                     {item.subItems && (
                       <ChevronDownIcon
                         strokeWidth={3}
-                        className=" w-4 h-4 ml-1 inline-block "
+                        className=" w-3 h-3 ml-1 inline-block"
                       />
                     )}
                   </a>
@@ -279,7 +279,7 @@ const Navbar = () => {
                         <li key={i}>
                           <a
                             href={sub.link}
-                            className={`block p-4 ${dropdownItem}`}
+                            className={`block p-4 text-xs ${dropdownItem}`}
                           >
                             {sub.title}
                           </a>
@@ -294,7 +294,7 @@ const Navbar = () => {
               <li className="text-md flex items-center">
                 <a
                   href="/karriere"
-                  className={`font-sans text-sm md:text-md lg:text-lg ${hoverLinkClass} flex items-center justify-center`}
+                  className={`font-sans text-xs md:text-sm lg:text-md font-normal ${hoverLinkClass} flex items-center justify-center`}
                 >
                   Karriere
                 </a>
@@ -304,7 +304,7 @@ const Navbar = () => {
               <li className="flex items-center">
                 <a
                   href="/contact"
-                  className={`font-sans text-sm md:text-md lg:text-lg ${hoverLinkClass} flex items-center justify-center`}
+                  className={`font-sans text-xs md:text-sm lg:text-md font-normal ${hoverLinkClass} flex items-center justify-center`}
                 >
                   Kontakt
                 </a>
@@ -314,17 +314,17 @@ const Navbar = () => {
 
           {/* Search Icon */}
           <div
-            className={`hidden xl:flex mr-8 sm:mr-3 ${textClass} ${hoverLinkClass}`}
+            className={`hidden lg:flex mr-8 sm:mr-3 ${textClass} ${hoverLinkClass}`}
           >
             <li className="flex items-center list-none">
-              <button onClick={toggleSearch} className="text-lg font-bold">
+              <button onClick={toggleSearch} className="text-sm md:text-md font-bold">
                 <i className="fas fa-search"></i>
               </button>
             </li>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="xl:hidden flex justify-end w-full">
+          <div className="lg:hidden flex justify-end w-full">
             <button
               onClick={toggleMenu}
               className={`focus:outline-none transition-shadow duration-300 ${textClass}`}

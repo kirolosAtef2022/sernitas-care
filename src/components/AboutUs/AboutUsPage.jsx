@@ -6,7 +6,7 @@ import Leitbild from "./Leitbild";
 import Kooperationsnetzwerk from "./Kooperationsnetzwerk";
 import MitgliedschaftBAP from "./MitgliedschaftBAP";
 
-import wirSindSernitasImg from "../../assets/aboutPage/hero-1.png";
+import wirSindSernitasImg from "../../assets/aboutPage/aboutus08.10.jpg";
 import teamImg from "../../assets/aboutPage/hero-4.jpg";
 import leitbildImg from "../../assets/aboutPage/hero-3.png";
 import kooperationsnetzwerkImg from "../../assets/aboutPage/hero-6.png";

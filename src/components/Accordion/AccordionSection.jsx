@@ -116,7 +116,7 @@ const AccordionSection = () => {
                 {showAll ? (
                   <FiChevronUp className="text-2xl mx-auto" />
                 ) : (
-                  <FiChevronDown className="text-2xl mx-auto" />
+                  <FiChevronDown className="text-2xl mx-auto"  />
                 )}
               </button>
             </div>

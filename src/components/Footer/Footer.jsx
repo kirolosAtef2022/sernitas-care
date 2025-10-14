@@ -11,7 +11,7 @@ import {
   FaXing,
 } from "react-icons/fa";
 
-import Logo from "../../assets/footerSection/logo1.10.svg";
+import Logo from "../../assets/footerSection/logo-grey.png";
 
 import PartnersSection from "./PartnersSection";
 import AffiliatesSection from "./AffiliatesSection";
@@ -53,7 +53,7 @@ const Footer = () => {
             <CachedImage
               src={Logo}
               alt="Sernitas Logo"
-              className="w-[200px] bg-primary-700 pr-2 pl-1  pb-1"
+              className="w-[200px] mx-auto md:mx-0"
             />
             <p className="font-sour text-lg">
               Wir globalisieren die Gesundheit!

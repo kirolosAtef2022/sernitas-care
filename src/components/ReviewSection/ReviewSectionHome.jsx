@@ -212,7 +212,7 @@ const ReviewSectionNew = () => {
   const videoUrl = "https://www.youtube.com/embed/5ORB8IWFxMo"; // Replace with your YouTube video ID
 
   return (
-    <section className="bg-primary-700 py-16 px-6 lg:px-12 shadow-xl">
+    <section className="bg-primary-700 py-7 px-6 lg:px-12 shadow-xl">
       <div className="container flex flex-col md:flex-row items-center justify-center gap-8">
         {/* Image with Play Button */}
         <div className="relative flex-shrink-0">
@@ -232,15 +232,15 @@ const ReviewSectionNew = () => {
 
         {/* Review Text */}
         <div className="flex-1 text-center md:text-left">
-          <p className="font-sour text-primary-500 text-md xl:text-lg text-justify leading-relaxed italic pb-4">
+          <p className="font-sour text-primary-500 text-xs lg:text-sm text-justify leading-relaxed italic pb-4">
             „Sernitas ist mein Begleiter am Morgen, am Mittag und am Abend. Dank
             Sernitas Care kann ich, trotz meines hohen Alters, selbstbestimmt
             und zufrieden zuhause wohnen und leben.“
           </p>
-          <p className="font-ephesis text-primary-500 text-3xl font-bold tracking-wide">
+          <p className="font-ephesis text-primary-500 text-2xl font-bold tracking-wide">
             Frau Müller
           </p>
-          <p className="text-primary-500">Patientin bei Sernitas Care</p>
+          <p className="text-primary-500 text-sm">Patientin bei Sernitas Care</p>
         </div>
       </div>
 

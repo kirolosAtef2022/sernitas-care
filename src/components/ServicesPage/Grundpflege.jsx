@@ -10,13 +10,19 @@ const Grundpflege = () => {
       {/* Text and Image Section */}
       <div className="flex flex-col lg:flex-row items-center gap-8">
         <div className="lg:w-1/2 space-y-4">
-          <h2 className="font-sour text-xl xl:text-2xl font-bold text-primary/90">
+          <h2 className="font-sour text-xl xl:text-2xl font-bold text-primary">
             Grundpflege
           </h2>
-          <h3 className="font-sour text-3xl xl:text-4xl font-bold text-primary/90">
-            Wenn der Alltag schwer fällt, sind wir für Sie da
+          <h3 className="font-sans text-3xl xl:text-4xl font-semibold text-primary-500">
+               <span className="">
+                 Wenn der Alltag schwer fällt, <br/>
+              </span>
+            <span className="bg-gradient-to-t from-primary-700 to-transparent">
+                 sind wir für Sie da
+              </span>
           </h3>
-          <p className="text-primary/90 text-justify">
+          
+          <p className="text-primary text-justify">
             Unsere Grundpflege hilft bei den ganz alltäglichen Dingen – wie
             Körperpflege, Ernährung oder Mobilität – mit Herz, Verstand und dem
             Blick fürs Wesentliche. So bleibt das Leben zuhause lebenswert,

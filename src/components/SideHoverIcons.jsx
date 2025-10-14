@@ -13,7 +13,7 @@ const SideHoverIcons = () => {
 
   return (
     <div
-      className={`fixed top-[55.6667%] right-3  -translate-y-1/2 z-20 transition-all duration-500 bg-transparent ${
+      className={`fixed top-1/2 -right-1  -translate-y-1/2 z-20 transition-all duration-500 bg-transparent ${
         hover ? "w-64" : "w-14"
       }`}
       onMouseEnter={() => setHover(true)}

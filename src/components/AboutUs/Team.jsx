@@ -182,37 +182,72 @@ const Team = () => {
 
       <div className="my-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {team.map((member, index) => (
+          // <a
+          //   key={index}
+          //   href={member.link}
+          //   target="_blank"
+          //   rel="noopener noreferrer"
+          //   className="relative rounded-2xl overflow-hidden shadow-2xl group block"
+          // >
+          //   {/* Background Image with smooth zoom */}
+          //   <CachedImage
+          //     src={member.img}
+          //     alt={member.name}
+          //     className="w-full h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          //   />
+
+          //   {/* Gradient overlay on hover */}
+          //   <div
+          //     className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent
+          //               opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          //   ></div>
+
+          //   {/* Info section (slides up on hover) */}
+          //   <div
+          //     className="absolute bottom-0 left-0 right-0 p-4 md:p-5
+          //               translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out"
+          //   >
+          //     <h3 className="text-white text-lg font-bold drop-shadow-sm">
+          //       {member.name}
+          //     </h3>
+          //     <p className="text-white/90 text-sm">{member.title}</p>
+          //   </div>
+          // </a>
           <a
-            key={index}
-            href={member.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative rounded-2xl overflow-hidden shadow-2xl group block"
-          >
-            {/* Background Image with smooth zoom */}
-            <CachedImage
-              src={member.img}
-              alt={member.name}
-              className="w-full h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-            />
+  key={index}
+  href={member.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="relative rounded-2xl overflow-hidden shadow-2xl group block"
+>
+  {/* Background Image with smooth zoom */}
+  <CachedImage
+    src={member.img}
+    alt={member.name}
+    className="w-full h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+  />
 
-            {/* Gradient overlay on hover */}
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            ></div>
+  {/* Gradient overlay on hover */}
+  <div
+    className="absolute inset-0 flex flex-col items-center justify-center
+           opacity-0 translate-y-3
+           group-hover:opacity-100 group-hover:translate-y-0
+           transition-all duration-500 ease-out"
+  ></div>
 
-            {/* Info section (slides up on hover) */}
-            <div
-              className="absolute bottom-0 left-0 right-0 p-4 md:p-5
-                        translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out"
-            >
-              <h3 className="text-white text-lg font-bold drop-shadow-sm">
-                {member.name}
-              </h3>
-              <p className="text-white/90 text-sm">{member.title}</p>
-            </div>
-          </a>
+  {/* Centered Info (shows only on hover) */}
+  <div
+    className="absolute inset-0 flex flex-col items-center justify-center
+               opacity-0 group-hover:opacity-100
+               transition-all duration-500 ease-out"
+  >
+    <h3 className="text-white text-xl font-bold drop-shadow-sm text-center">
+      {member.name}
+    </h3>
+    <p className="text-white/90 text-sm mt-1 text-center">{member.title}</p>
+  </div>
+</a>
+
         ))}
       </div>
 

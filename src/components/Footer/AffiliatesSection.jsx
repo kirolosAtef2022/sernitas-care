@@ -120,7 +120,7 @@ const AffiliatesSection = () => {
         Unsere Partner
       </h2>
 
-      <div className="container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))] xl:grid-cols-[repeat(auto-fit,minmax(0,1fr))] gap-4">
+      <div className="container mx-auto grid grid-cols-4 md:grid-cols-[repeat(auto-fit,minmax(0,1fr))] xl:grid-cols-[repeat(auto-fit,minmax(0,1fr))] gap-4">
         {affiliates.map((affiliate) => (
           <motion.a
             key={affiliate.id}
