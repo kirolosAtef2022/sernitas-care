@@ -1,4 +1,4 @@
-import karriereImage1 from "../../assets/karrierePage/karriere-1.png";
+import karriereImage1 from "../../assets/karrierePage/karriere-2.png";
 import karriereImage2 from "../../assets/aboutPage/hero-3.png";
 
 import CachedImage from "../CachedImage";
@@ -45,29 +45,44 @@ const jobPosts = [
 const KarrierePage = () => {
   return (
     <div className="bg-gray-50">
-      {/* Hero Section */}
-    <section className="relative bg-gray-100 h-[400px] flex items-center justify-center overflow-hidden">
-  <CachedImage
-    src={karriereImage1}
-    alt="Karriere"
-    className="absolute inset-0 w-full h-full object-fill"
-  />
-</section>
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative bg-gray-100 h-[400px] md:h-[500px] flex items-center overflow-hidden">
+        <CachedImage
+          src={karriereImage1}
+          alt="Karriere"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
+        {/* Overlay Layer */}
+        <div className="absolute inset-0 bg-black/10"></div>
 
-      {/* Introduction Section */}
-      <section className="py-12 xl:py-24 px-6 lg:px-12 xl:32  bg-slate-100">
+        {/* Text + Button */}
+        <div className="relative z-10 text-left text-primary-500 px-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 md:mb-8 drop-shadow-lg">
+            Karriere
+          </h1>
+          <a
+            href="/karriere/bewerben"
+            className="font-mono text-white bg-primary hover:bg-transparent
+             hover:text-primary-500 px-4 py-5 rounded-md text-lg
+             transition shadow-lg hover:shadow-xl hover:border-2 hover:border-primary-500"
+          >
+           Werde ein Teil unseres Teams!
+          </a>
+        </div>
+      </section>
+
+      {/* ================= INTRODUCTION SECTION ================= */}
+      <section className="py-12 xl:py-24 px-6 lg:px-12 xl:px-32 bg-slate-100">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="font-sour text-secondary text-xl font-medium mb-4 ">
+          <h2 className="font-sour text-secondary text-xl font-medium mb-4">
             EIN TEAM VON EXPERTEN
           </h2>
           <h1 className="font-sour text-primary/90 text-3xl lg:text-4xl font-bold mb-16">
             Starte Deine Karriere bei Sernitas
           </h1>
 
-          {/* Arbeitsweise Section */}
           <div className="max-w-full mx-auto flex flex-col items-center gap-10 text-primary/90 text-justify space-y-16">
-            {/* Left Text */}
             <div className="w-full">
               <h2 className="font-sour text-3xl font-bold mt-12 mb-6 text-center">
                 Unsere Arbeitsweise
@@ -88,20 +103,11 @@ const KarrierePage = () => {
                 freuen wir uns auf Deine Bewerbung.
               </p>
             </div>
-
-            {/* Right Image */}
-            {/* <div className="w-full md:w-1/2 flex justify-center items-center">
-              <CachedImage
-                src={karriereImage2}
-                alt="Arbeitsweise"
-                className="rounded-xl shadow-lg object-cover w-full h-96"
-              />
-            </div> */}
           </div>
         </div>
       </section>
 
-      {/* Job Posts Section */}
+      {/* ================= JOB POSTS SECTION ================= */}
       <section className="py-24 px-6 lg:px-12 xl:px-32">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-sour text-primary/90 text-4xl font-bold text-center mb-12">
@@ -130,7 +136,7 @@ const KarrierePage = () => {
         </div>
       </section>
 
-      {/* Apply Button Section */}
+      {/* ================= APPLY BUTTON SECTION ================= */}
       <section className="py-24 px-6 lg:px-12 xl:px-32 text-center">
         <h2 className="font-sour text-primary/90 text-xl lg:text-2xl font-medium mb-16">
           Haben wir Dein Interesse geweckt? Dann bewirb dich gleich! Wir freuen

@@ -121,6 +121,7 @@
 import HRImg1 from "../../assets/aboutPage/hr-1.10.jpg";
 import HRImg2 from "../../assets/aboutPage/hr-2.png";
 import HRImg3 from "../../assets/aboutPage/hr-3.jpg";
+import HRImg5 from "../../assets/aboutPage/hr-5.png";
 
 import CachedImage from "../CachedImage";
 
@@ -144,10 +145,16 @@ const team = [
     link: "https://www.linkedin.com/in/andre-pieper-7b208b24b/",
   },
   {
-    name: "Dr. Ali Yildiz",
-    title: "CEO",
-    img: HRImg1,
-    link: "https://www.linkedin.com/in/ali-yildiz-09376a157/",
+    name: "Matthias Bvesniak",
+    title: "Pflegedirektion",
+    img: HRImg5,
+    link: "https://www.linkedin.com/company/sernitas/",
+  },
+  {
+    name: "Claudia NevMann",
+    title: "Pflegedirektion",
+    img: HRImg5,
+    link: "https://www.linkedin.com/company/sernitas/",
   },
 ];
 
@@ -180,7 +187,7 @@ const Team = () => {
         Leitungsteam
       </h2>
 
-      <div className="my-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="my-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {team.map((member, index) => (
           // <a
           //   key={index}

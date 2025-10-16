@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import Logo from "../../assets/footerSection/logoHome.png";
+import Greylogo from "../../assets/footerSection/editedLogoGrey.png";
 import CachedImage from "../CachedImage";
 
 const Navbar = () => {
@@ -196,10 +197,10 @@ const Navbar = () => {
             href="/"
             aria-label="Sernitas Care – Startseite"
             title="Startseite"
-            className="group inline-flex items-center justify-center"
+            className="group inline-flex items-center justify-center ml-2"
           >
             <CachedImage
-              src={Logo}
+              src={solid || !isHome ? Logo : Greylogo}
               alt="Sernitas Care"
               width={150}
               height={50}
@@ -393,7 +394,8 @@ const Navbar = () => {
                   className="flex items-center gap-2 hover:text-secondary transition duration-300"
                   onClick={toggleMenu}
                 >
-                  <i className="fas fa-home"></i> Home
+                  {/* <i className="fas fa-home"></i>  */}
+                  Home
                 </a>
               </li>
 

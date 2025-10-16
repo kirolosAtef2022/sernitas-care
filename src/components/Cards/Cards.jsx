@@ -22,7 +22,7 @@ const Cards = () => {
     <div className="bg-slate-100">
       <div className="container py-24 px-6 lg:px-12 xl:px-44">
         {/* Section Title */}
-        <h2 className="font-sour text-center text-secondary text-xl md:text-2xl font-medium mb-4">
+        <h2 className="font-sour text-center text-secondary text-lg md:text-xl font-medium mb-4">
           ZUHAUSE IN BESTEN HÄNDEN
         </h2>
         <motion.h1
@@ -36,7 +36,7 @@ const Cards = () => {
         </motion.h1>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-10">
           {cardsData.map((card, index) => (
             <motion.div
               key={card.id}
@@ -50,23 +50,23 @@ const Cards = () => {
               <CachedImage
                 src={card.image}
                 alt={card.title}
-                className="w-16 h-16 border-2 border-bg-white rounded-full object-contain p-4"
+                className="w-14 h-14 border-2 border-bg-white rounded-full object-contain p-4"
               />
 
               {/* Title */}
-              <p className="text-sm text-white font-semibold my-4">
+              <p className="text-[clamp(0.65rem,1vw,0.875rem)] text-white font-semibold my-4 leading-tight">
                 {card.title}
               </p>
 
               {/* Description */}
-              <p className="text-xs text-white/80 leading-relaxed flex-grow my-2">
+              <p className="text-xs  text-white/80 leading-relaxed flex-grow my-4">
                 {card.description}
               </p>
 
               {/* Button */}
               <button
                 onClick={() => handleOpenModal(card)}
-                className=" bg-white text-primary px-3 py-2 text-sm rounded-lg hover:bg-gray-200 hover:scale-105 transition-transform duration-300 ease-in-out"
+                className=" bg-white text-primary px-3 py-2 text-xs rounded-lg hover:bg-gray-200 hover:scale-105 transition-transform duration-300 ease-in-out"
               >
                 WEITERLESEN
               </button>

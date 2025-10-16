@@ -6,9 +6,9 @@ import Leitbild from "./Leitbild";
 import Kooperationsnetzwerk from "./Kooperationsnetzwerk";
 import MitgliedschaftBAP from "./MitgliedschaftBAP";
 
-import wirSindSernitasImg from "../../assets/aboutPage/aboutus08.10.jpg";
+import wirSindSernitasImg from "../../assets/aboutPage/sernitas-building.jpg";
 import teamImg from "../../assets/aboutPage/hero-4.jpg";
-import leitbildImg from "../../assets/aboutPage/hero-3.png";
+import leitbildImg from "../../assets/aboutPage/Sernitas -140.jpg";
 import kooperationsnetzwerkImg from "../../assets/aboutPage/hero-6.png";
 import bapImg from "../../assets/aboutPage/hero-5.png";
 
@@ -49,7 +49,7 @@ const AboutUsPage = () => {
   const activeTab = tabs.find((tab) => location.pathname.startsWith(tab.path));
 
   return (
-    <div className="min-h-screen pt-[68px] pb-16 backdrop-blur-md">
+    <div className="min-h-screen pt-[68px] pb-16 backdrop-blur-md -mt-5">
       {/* Top Image */}
       <CachedImage
         src={activeTab?.image || wirSindSernitasImg} // Default to Grundpflege image

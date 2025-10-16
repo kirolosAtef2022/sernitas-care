@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import teamImage from "../../assets/homePage/service-3.jpg";
+import teamImage from "../../assets/homePage/photo_enhanced_2x.png";
 
 import CachedImage from "../CachedImage";
 
@@ -10,10 +10,10 @@ const WelcomeSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Top Heading */}
         <div className="text-center mb-12">
-          <h2 className="font-sans text-secondary text-xl lg:text-2xl font-medium mb-4">
+          <h2 className="font-sans text-secondary text-lg lg:text-xl font-medium mb-4">
             HERZLICH WILLKOMMEN BEI SERNITAS CARE
           </h2>
-          <h1 className="font-sans text-primary-500 text-xl md:text-3xl font-bold mb-6 leading-snug">
+          <h1 className="font-sans text-primary-500 text-2xl md:text-3xl font-semibold mb-6 leading-snug">
             Professionelle Pflege & Betreuung mit interkulturellem Verständnis
           </h1>
         </div>
@@ -31,7 +31,7 @@ const WelcomeSection = () => {
             <CachedImage
               src={teamImage}
               alt="Sernitas Team"
-              className="rounded-2xl shadow-2xl object-cover w-[600px] h-[600px]"
+              className="rounded-2xl shadow-2xl object-cover w-[400px] h-[500px] md:h-[650px] lg:h-[550px]"
             />
           </motion.div>
 
@@ -43,7 +43,7 @@ const WelcomeSection = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: false, amount: 0.2 }}
           >
-            <h3 className="relative inline-block  text-primary-500  text-xl md:text-2xl font-semibold mb-4">
+            <h3 className="relative inline-block  text-primary-500 text-xl  md:text-xl lg:text-2xl font-semibold mb-4 md:mb-6">
                <span className="">
                 Sernitas Care – Ihre vertrauensvolle<br/>
               </span>
@@ -51,25 +51,25 @@ const WelcomeSection = () => {
                 Unterstützung im Alltag
               </span>
             </h3>
-            <p className="text-base md:text-lg leading-relaxed text-primary-500 mb-4 text-justify">
+            <p className="text-lg md:text-md lg:text-xl xl:text-2xl leading-relaxed text-primary-500 mb-4 text-justify">
               Bei Sernitas Care bieten wir Ihnen eine Vielzahl an
               Dienstleistungen, die individuell auf Ihre Bedürfnisse abgestimmt
               sind. Unser Ziel ist es, Ihnen ein selbstbestimmtes, würdevolles
               Leben in Ihrer gewohnten Umgebung zu ermöglichen – ganz gleich, ob
               es um kleine Alltagshelfer oder um umfassende Pflege geht.
             </p>
-            <p className="text-base md:text-lg leading-relaxed text-primary-500 mb-4 text-justify">
+            <p className="text-lg md:text-md lg:text-xl xl:text-2xl leading-relaxed text-primary-500 mb-4 text-justify">
               Mit unseren Pflege- und Betreuungsleistungen unterstützen wir Sie
               in den Bereichen, die im Alltag besonders wichtig sind:{" "}
-              <span className="font-semibold text-primary-500">
+              <span className="font-semibold text-secondary">
                 Körperpflege
               </span>
               ,{" "}
-              <span className="font-semibold text-primary-500">Ernährung</span>{" "}
+              <span className="font-semibold text-secondary">Ernährung</span>{" "}
               und{" "}
-              <span className="font-semibold text-primary-500">Mobilität</span>.
+              <span className="font-semibold text-secondary">Mobilität</span>.
             </p>
-            <p className="text-base md:text-lg leading-relaxed text-primary-500 text-justify">
+            <p className="text-lg md:text-md lg:text-xl xl:text-2xl leading-relaxed text-primary-500 text-justify">
               Wir sind da, um Ihnen bei den täglichen Aufgaben zur Seite zu
               stehen und sorgen mit viel Einfühlungsvermögen dafür, dass Sie
               sich rundum wohl und sicher fühlen – zu Hause eben.

@@ -11,7 +11,7 @@ import {
   FaXing,
 } from "react-icons/fa";
 
-import Logo from "../../assets/footerSection/logo-grey.png";
+import Logo from "../../assets/footerSection/editedLogoGrey.png";
 
 import PartnersSection from "./PartnersSection";
 import AffiliatesSection from "./AffiliatesSection";

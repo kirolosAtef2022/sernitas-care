@@ -12,7 +12,7 @@ export default {
         secondary: "#058169", // Top text
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"], // Main text
+        sans: ["sans-serif","Poppins"], // Main text
         ephesis: ["Ephesis", "cursive"], // Decorative
         sour: ["Poppins", "cursive"], // Decorative
       },

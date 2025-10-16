@@ -1,6 +1,6 @@
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
-import mapImage from "../../assets/homePage/map6.10.png";
+import mapImage from "../../assets/homePage/Map10.jpeg";
 
 import CachedImage from "../CachedImage";
 
